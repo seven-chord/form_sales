@@ -14,8 +14,7 @@ class UpdateToCompaniesTable extends Migration
     public function up()
     {
         Schema::table('to_companies', function (Blueprint $table) {
-            $table->timestamps('send_date');
-
+            $table->timestamp('send_date');
             //
         });
     }

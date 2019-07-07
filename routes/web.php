@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/to_companies', function () {
-    return view('index');
+    return view('to_companies/create');
 });
+
+
 
 Auth::routes();
 
