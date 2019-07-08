@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Prefecture;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $prefectures = Prefecture::all();
+        $categories = Category::all();
+
+        return view('home')
+                ->with('prefectures', $prefectures)
+                ->with('categories', $categories);
     }
 }
