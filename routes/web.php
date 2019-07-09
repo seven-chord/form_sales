@@ -18,16 +18,31 @@ use Carbon\Carbon;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+//企業情報作成route
 Route::get('/to_companies/create', function () {
     return view('to_companies/create');
 });
 
+
 //作成したいTo_companies除法をDBにinsertするコントローラー
 Route::post('/to_companies', 'ToCompaniesController@insert');
+
+
+//企業情報一覧表示
+Route::get('/to_companies', function () {
+    $to_companies = To_company::orderBy('send_date','asc')->get();
+    return view('to_companies/index',[
+        'to_companies' => $to_companies
+    ]);
+});
 
 
 

@@ -13,9 +13,10 @@
       
     </head>
     <body>
-        
-
-
-
+        <h1>企業情報一覧</h1>
+        @foreach ($to_companies as $to_company)
+            <div>{{ $to_company->company_name }}</div>
+            <div>{{ $to_company->address_1 }}</div>
+        @endforeach
     </body>
 </html>
