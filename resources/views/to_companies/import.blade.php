@@ -12,7 +12,7 @@
     </head>
     <body>
         <p>CSVファイルを選択してください</p>
-        <form action="{{ url('/to_companies')}}" method="POST">
+        <form action="{{ url('/to_companies/import')}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
 
             <input type="file" name="csv_file">

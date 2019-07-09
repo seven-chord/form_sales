@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\To_company;
 use Validator;
 use Carbon\Carbon;
+use SplFileObject;
+
 
 class ToCompaniesController extends Controller
 {
@@ -26,6 +28,16 @@ class ToCompaniesController extends Controller
         $to_companies->send_date = $now;
         $to_companies->save(); //「/」ルートにリダイレクト
         return redirect('/to_companies/create');
+    }
+
+
+    public function CsvImport(Request $request)
+    {
+        
+
+
+
+
     }
     //
 }
