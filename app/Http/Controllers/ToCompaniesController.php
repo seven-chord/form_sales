@@ -12,7 +12,7 @@ use SplFileObject;
 class ToCompaniesController extends Controller
 {
     //テスト用to_companies情報insertのController
-    public function insert(Request $request)
+    public function PostInsert(Request $request)
     {
         $now = Carbon::now();
         $to_companies = new To_company;
@@ -38,14 +38,20 @@ class ToCompaniesController extends Controller
 
     }
 
+
     //企業一覧表示（index)のコントローラー
     public function index(Request $request)
     {
       $to_companies = To_company::orderBy('send_date','asc')->get();
-      return view('to_companies/index',[
-      'to_companies' => $to_companies
-    ]);
-
+      return view('to_companies/index',['to_companies' => $to_companies]);
     }
+
+    //テスト用insertファイルへ
+    public function GetInsert(Request $request)
+    {
+        return view('to_companies/insert');
+    }
+
+  
     
 }

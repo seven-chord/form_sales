@@ -17,28 +17,26 @@ use Carbon\Carbon;
 
 
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 
-
-//企業情報作成route
-Route::get('/to_companies/create', function () {
-    return view('to_companies/create');
-});
+//テスト用企業情報作成route
+Route::get('/to_companies/insert', 'ToCompaniesController@GetInsert');
 
 
 //作成したいTo_companies除法をDBにinsertするコントローラー
-Route::post('/to_companies', 'ToCompaniesController@insert');
+Route::post('/to_companies/insert', 'ToCompaniesController@PostInsert');
 
 
 //企業情報一覧表示
 Route::get('/to_companies','ToCompaniesController@index');
 
+
+//csvインポート画面
+Route::get('/to_companies/csv_import','ToCompaniesController@csvImport');
 
 
 
