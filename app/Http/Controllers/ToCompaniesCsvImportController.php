@@ -123,5 +123,8 @@ class ToCompaniesCsvImportController extends Controller
                 }
             }
             return view('to_companies/csv_import');
+
+            //本当は、下記のように変数messageに値を持たせて表示させたい
+            // return view('to_companies/csv_import',['message' => '取り込みが完了しました。']);
         }
 }

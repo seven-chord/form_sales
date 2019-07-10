@@ -35,7 +35,9 @@ class ToCompaniesController extends Controller
     public function index(Request $request)
     {
       $to_companies = To_company::orderBy('send_date','asc')->get();
-      return view('to_companies/index',['to_companies' => $to_companies]);
+    //   return view('to_companies/index',['to_companies' => $to_companies]);
+      return view('to_companies/index',['to_companies_order_get' => $to_companies]);
+
     }
 
 
