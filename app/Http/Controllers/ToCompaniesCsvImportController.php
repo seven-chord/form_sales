@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ToCompanyCsvImport;
 
 use SplFileObject;
+use Carbon\Carbon;
+
 
 
 
@@ -22,16 +24,6 @@ class ToCompaniesCsvImportController extends Controller
 
   
         //csvインポートページしたデータをDBにinsert
-        public function csvImportPost(Request $request)
-        {
-            //to_companiesテーブルオブジェクトインスタンスを作成
-            $to_companies = new To_company;
-
-
-            // '情報が追加されました。';
-            // '項目等に誤りがあります。';
-        }
-
 
         //csvimportに必要と思われる
         protected $csvimport = null;
@@ -44,10 +36,10 @@ class ToCompaniesCsvImportController extends Controller
         }
     
     
-        public function import(Request $request)
+        public function csvImportPost(Request $request)
         {
             //$to_companiesを全件削除
-            ToCompanyCsvImport::truncate();
+            // ToCompanyCsvImport::truncate();
 
             //ロケールを設定
             setlocale(LC_ALL, 'ja_JP.UTF-8');
@@ -60,7 +52,7 @@ class ToCompaniesCsvImportController extends Controller
             $file_path = $request->file('csv_file')->path($uploaded_file);
 
             //SplFileObjectを生成
-            $file = new SplFileObject();
+            $file = new SplFileObject($file_path);
 
             $file->setFlags(SplFileObject::READ_CSV);
 
@@ -74,27 +66,34 @@ class ToCompaniesCsvImportController extends Controller
                 //1行目のヘッダーは取り込まない
                 if($row_count > 1)
                 {
-                    $test_name1 = mb_convert_encoding($row[0], 'UTF-8', 'SJIS');
-                    $test_name2 = mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
-                    $test_name3 = mb_convert_encoding($row[2], 'UTF-8', 'SJIS');
-                    $test_name4 = mb_convert_encoding($row[3], 'UTF-8', 'SJIS');
-                    $test_name5 = mb_convert_encoding($row[4], 'UTF-8', 'SJIS');
+                    $company_name = mb_convert_encoding($row[0], 'UTF-8', 'SJIS');
+                    $address_1 = mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
+                    $address_2 = mb_convert_encoding($row[2], 'UTF-8', 'SJIS');
+                    $telephone_1 = mb_convert_encoding($row[3], 'UTF-8', 'SJIS');
+                    $telephone_2 = mb_convert_encoding($row[4], 'UTF-8', 'SJIS');
+                    $telephone_3 = mb_convert_encoding($row[5], 'UTF-8', 'SJIS');
+                    $categories = mb_convert_encoding($row[6], 'UTF-8', 'SJIS');
+                    $contact_url = mb_convert_encoding($row[7], 'UTF-8', 'SJIS');
 
-
+                    //現在時刻を取得
+                    $now = Carbon::now();
                     ToCompanyCsvImport::insert(array(
-                        'company_name' => $test_name1,
-                        ''
-
-
-
+                        'company_name' => $company_name,
+                        'address_1' => $address_1,
+                        'address_2' => $address_2,
+                        'telephone_1' => $telephone_1,
+                        'telephone_2' => $telephone_2,
+                        'telephone_3' => $telephone_3,
+                        'categories' => $categories,
+                        'contact_url' => $contact_url,
+                        'possible_send_flag' => 1,
+                        'send_date' => $now,
                     ));
-
-                };
-
-
+                }
+              $row_count++;
             }
 
-
+            return view('to_companies/csv_import');
         }
 
 

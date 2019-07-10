@@ -22,7 +22,6 @@ class ToCompaniesController extends Controller
         $to_companies->telephone_2 = $request->telephone_2;
         $to_companies->telephone_3 = $request->telephone_3;
         $to_companies->categories = $request->categories;
-        $to_companies->contact_url = $request->contact_url;
         $to_companies->contact_url = 'https://techacademy.jp/magazine/1988';
         $to_companies->possible_send_flag = 1;
         $to_companies->send_date = $now;
