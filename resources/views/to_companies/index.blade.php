@@ -26,7 +26,8 @@
                 <li>{{ $to_company->categories }}</li>  
                 <li><a href="{{ $to_company->contact_url }}">{{ $to_company->contact_url }}</a></li>                      
             </ul>
-
         @endforeach
+
+        {{$to_companies_order_get->links()}}
     </body>
 </html>

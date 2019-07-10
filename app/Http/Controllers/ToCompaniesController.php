@@ -34,7 +34,9 @@ class ToCompaniesController extends Controller
     //企業一覧表示（index)のコントローラー
     public function index(Request $request)
     {
-      $to_companies = To_company::orderBy('send_date','asc')->get();
+      // $to_companies = To_company::orderBy('send_date','asc')->get();
+      $to_companies = To_company::orderBy('send_date','asc')->paginate(30);
+
     //   return view('to_companies/index',['to_companies' => $to_companies]);
       return view('to_companies/index',['to_companies_order_get' => $to_companies]);
 
