@@ -37,12 +37,8 @@ Route::post('/to_companies', 'ToCompaniesController@insert');
 
 
 //企業情報一覧表示
-Route::get('/to_companies', function () {
-    $to_companies = To_company::orderBy('send_date','asc')->get();
-    return view('to_companies/index',[
-        'to_companies' => $to_companies
-    ]);
-});
+Route::get('/to_companies','ToCompaniesController@index');
+
 
 
 
