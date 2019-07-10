@@ -12,7 +12,7 @@ use SplFileObject;
 class ToCompaniesController extends Controller
 {
     //テスト用to_companies情報insertのController
-    public function PostInsert(Request $request)
+    public function insertPost(Request $request)
     {
         $now = Carbon::now();
         $to_companies = new To_company;
@@ -28,16 +28,10 @@ class ToCompaniesController extends Controller
         $to_companies->possible_send_flag = 1;
         $to_companies->send_date = $now;
         $to_companies->save(); //「/」ルートにリダイレクト
-        return redirect('/to_companies/create');
+        return redirect('/to_companies/insert');
     }
 
-    //csvインポート用コントローラー
-    public function CsvImport(Request $request)
-    {
-        
-
-    }
-
+ 
 
     //企業一覧表示（index)のコントローラー
     public function index(Request $request)
@@ -46,8 +40,10 @@ class ToCompaniesController extends Controller
       return view('to_companies/index',['to_companies' => $to_companies]);
     }
 
+
+
     //テスト用insertファイルへ
-    public function GetInsert(Request $request)
+    public function insertGet(Request $request)
     {
         return view('to_companies/insert');
     }

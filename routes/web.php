@@ -24,11 +24,11 @@ Route::get('/', function () {
 
 
 //テスト用企業情報作成route
-Route::get('/to_companies/insert', 'ToCompaniesController@GetInsert');
+Route::get('/to_companies/insert', 'ToCompaniesController@insertGet');
 
 
 //作成したいTo_companies除法をDBにinsertするコントローラー
-Route::post('/to_companies/insert', 'ToCompaniesController@PostInsert');
+Route::post('/to_companies/insert', 'ToCompaniesController@insertPost');
 
 
 //企業情報一覧表示
@@ -36,7 +36,7 @@ Route::get('/to_companies','ToCompaniesController@index');
 
 
 //csvインポート画面
-Route::get('/to_companies/csv_import','ToCompaniesController@csvImport');
+Route::get('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportGet');
 
 
 
