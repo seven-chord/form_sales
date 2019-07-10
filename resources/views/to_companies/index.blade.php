@@ -15,8 +15,18 @@
     <body>
         <h1>企業情報一覧</h1>
         @foreach ($to_companies_order_get as $to_company)
-            <div>{{ $to_company->company_name }}</div>
-            <div>{{ $to_company->address_1 }}</div>
+
+            <ul>
+                <li>{{ $to_company->company_name }}</li>
+                <li>{{ $to_company->address_1 }}</li>
+                <li>{{ $to_company->address_2 }}</li>            
+                <li>{{ $to_company->telephone_1 }}</li>            
+                <li>{{ $to_company->telephone_2 }}</li>            
+                <li>{{ $to_company->telephone_3 }}</li>            
+                <li>{{ $to_company->categories }}</li>  
+                <li><a href="{{ $to_company->contact_url }}">{{ $to_company->contact_url }}</a></li>                      
+            </ul>
+
         @endforeach
     </body>
 </html>
