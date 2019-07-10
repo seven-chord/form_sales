@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\To_company;
 use Validator;
 use Carbon\Carbon;
-use SplFileObject;
 
 
 class ToCompaniesController extends Controller

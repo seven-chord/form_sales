@@ -38,6 +38,7 @@ Route::get('/to_companies','ToCompaniesController@index');
 //csvインポート画面
 Route::get('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportGet');
 
+Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportPost');
 
 
 Auth::routes();

@@ -10,9 +10,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     </head>
+
+
+
     <body>
         <p>CSVファイルを選択してください</p>
-        <form action="{{ url('/to_companies/import')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/to_companies/csv_import')}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
 
             <input type="file" name="csv_file">
