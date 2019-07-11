@@ -34,7 +34,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th class="col-auto">No</th>
+                            <th class="col-md-auto">No</th>
                             <th class="col-md-auto">企業名</th>
                             <th class="col-md-auto">都道府県</th>
                             <th class="col-md-auto">住所</th>
