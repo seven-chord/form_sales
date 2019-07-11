@@ -8,26 +8,68 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 
         <!-- Styles -->
       
     </head>
     <body>
-        <h1>企業情報一覧</h1>
-        @foreach ($to_companies_order_get as $to_company)
+    <!-- 企業情報を取得 -->
 
-            <ul>
-                <li>{{ $to_company->company_name }}</li>
-                <li>{{ $to_company->address_1 }}</li>
-                <li>{{ $to_company->address_2 }}</li>            
-                <li>{{ $to_company->telephone_1 }}</li>            
-                <li>{{ $to_company->telephone_2 }}</li>            
-                <li>{{ $to_company->telephone_3 }}</li>            
-                <li>{{ $to_company->categories }}</li>  
-                <li><a href="{{ $to_company->contact_url }}">{{ $to_company->contact_url }}</a></li>                      
-            </ul>
-        @endforeach
+    <style>
+        /* -------テーブルNoカウントここから------- */
+        table {
+            counter-reset: rowCount;
+        }
 
-        {{$to_companies_order_get->links()}}
+        table > tbody > tr {
+            counter-increment: rowCount;
+        }
+
+        table > tbody > tr > td:first-child::before {
+            content: counter(rowCount);
+        }
+        /* -------テーブルNoカウントここまで------- */
+
+        .container-fluid{
+            width:80%;
+        }
+    </style>
+        
+    <div class="container-fluid">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-auto">No</th>
+                            <th class="col-md-auto">企業名</th>
+                            <th class="col-md-auto">都道府県</th>
+                            <th class="col-md-auto">住所</th>
+                            <th class="col-md-auto">電話番号</th>
+                            <th class="col-md-auto">カテゴリ</th>
+                            <th class="col-md-auto">問い合わせURL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    @foreach ($to_companies_order_get as $to_company)
+
+                        <tr>
+                            <td></td>
+                            <td>{{ $to_company->company_name }}</td>
+                            <td>{{ $to_company->address_1 }}</td>
+                            <td>{{ $to_company->address_2 }}</td>
+                            <td>{{ $to_company->telephone_1.'-'.$to_company->telephone_2.'-'.$to_company->telephone_3}}</td>
+                            <td>{{ $to_company->categories }}</td>
+                            <td><a href="{{ $to_company->contact_url }}">{{ $to_company->contact_url }}</a></td>
+                        </tr>
+
+                    @endforeach
+                    </tbody>
+                </table>
+                {{$to_companies_order_get->links()}}
+            </div>
+
+
     </body>
 </html>
