@@ -6,16 +6,20 @@
         <div class="col-md-4">
             <h2>地域</h2>
             <select class="form-control">
-                @foreach ($prefectures as $prefecture)
+                @forelse ($prefectures as $prefecture)
                     <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
-                @endforeach
+                @empty
+                    <option value="">-</option>
+                @endforelse
             </select>
             <hr>
             <h2>カテゴリ</h2>
             <select class="form-control">
-                @foreach ($categories as $category)
+                @forelse ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
+                @empty
+                    <option value="">-</option>
+                @endforelse
             </select>
             <hr>
             <button type="button" class="btn btn-primary">検索</button>
