@@ -34,10 +34,10 @@ class ToCompaniesController extends Controller
     //企業一覧表示（index)のコントローラー
     public function index(Request $request)
     {
-      $pagenate_num = 30;
+      $pagenate_counts = 30;
       // $to_companies = To_company::orderBy('send_date','asc')->get();
-      $to_companies = To_company::orderBy('send_date','asc')->paginate($pagenate_num);
-      $count = To_company::orderBy('send_date','asc')->get()->count() / $pagenate_num;
+      $to_companies = To_company::orderBy('send_date','asc')->paginate($pagenate_counts);
+      $count = To_company::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
       $total_count = To_company::orderBy('send_date','asc')->get()->count();
 
       // $test = To_company::orderBy('send_date','asc')->get()->count();
@@ -45,7 +45,7 @@ class ToCompaniesController extends Controller
 
     //   return view('to_companies/index',['to_companies' => $to_companies]);
       return view('to_companies/index',
-      ['to_companies_order_get' => $to_companies,'count' => $count,'total_count' => $total_count]
+      ['to_companies_order_get' => $to_companies,'count' => $count,'pagenate_counts' => $pagenate_counts]
       // ['count' => $count],
       // ['total_count' => $total_count]
       // ['test'=> $test]

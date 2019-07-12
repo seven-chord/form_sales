@@ -2,8 +2,12 @@
     //検索して出てきた企業番号をセットする変数$company_indexを作成
     $url = url()->full();
     $url_page_value =  strchr($url, 'page=');
-    $page_count = intval(str_replace('page=','',$url_page_value));
-    $company_index = 1 + 30 * ($page_count - 1);
+    if(!$url_page_value === false){
+        $page_count = intval(str_replace('page=','',$url_page_value));
+        $company_index = 1 + $pagenate_counts * ($page_count - 1);    
+    }else{
+        $company_index = 1;
+    }
 ?>
 
 
@@ -30,7 +34,7 @@
         }
     </style>
         
-    <div class="container-fluid">
+        <div class="container-fluid">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
