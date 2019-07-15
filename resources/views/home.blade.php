@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <h2>地域</h2>
             <select class="form-control">
                 @forelse ($prefectures as $prefecture)
@@ -23,21 +23,49 @@
             </select>
             <hr>
             <button type="button" class="btn btn-primary">検索</button>
+            <hr>
+            <hr>
+            <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
         </div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+        <div class="col-md-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">企業名</th>
+                    <th scope="col">都道府県</th>
+                    <th scope="col">住所</th>
+                    <th scope="col">電話番号</th>
+                    <th scope="col">カテゴリ</th>
+                    <th scope="col">問い合わせURL</th>
+                    <th scope="col">送信日	</th>
+                    <th scope="col">送信可否</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($toCompanies as $toCompany)
+                        <tr>
+                            <th scope="row">{{ $toCompany->id }}</th>
+                            <td>{{ $toCompany->company_name }}</td>
+                            <td>{{ $toCompany->address_1 }}</td>
+                            <td>{{ $toCompany->address_2 }}</td>
+                            <td>{{ $toCompany->telephone_1 }}</td>
+                            <td>{{ $toCompany->categories }}</td>
+                            <td>{{ $toCompany->contact_url }}</td>
+                            <td>{{ $toCompany->send_date }}</td>
+                            <td>{{ $toCompany->possible_send_flag }}</td>
+                            <td>
+                                <a class="btn btn-warning" href="#" role="button">非表示</a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            データが登録されていません。
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
