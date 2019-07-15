@@ -19,8 +19,6 @@ class ToCompaniesTable extends Migration
                 $table->string('address_1');
                 $table->string('address_2');
                 $table->string('telephone_1');
-                $table->string('telephone_2');
-                $table->string('telephone_3');
                 $table->string('categories');
                 $table->string('contact_url');
                 $table->integer('possible_send_flag'); //1=可能,2=不可,0=まだ
