@@ -4,30 +4,35 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-2">
-            <h2>地域</h2>
-            <select class="form-control">
-                @forelse ($prefectures as $prefecture)
-                    <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
-                @empty
-                    <option value="">-</option>
-                @endforelse
-            </select>
-            <hr>
-            <h2>カテゴリ</h2>
-            <select class="form-control">
-                @forelse ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @empty
-                    <option value="">-</option>
-                @endforelse
-            </select>
-            <hr>
-            <button type="button" class="btn btn-primary">検索</button>
-            <hr>
+            <form action="{{ route('home.search') }}" method="POST">
+                @csrf
+                <h2>地域</h2>
+                <select class="form-control" name="prefecture_id">
+                        <option value="">-</option>
+                    @foreach ($prefectures as $prefecture)
+                        <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
+                    @endforeach
+                </select>
+                <hr>
+                <h2>カテゴリ</h2>
+                <select class="form-control" name="category_id">
+                        <option value="">-</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                <hr>
+                <button type="submit" class="btn btn-primary">検索</button>
+            </form>
             <hr>
             <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
         </div>
         <div class="col-md-10">
+            @if (session('success'))
+                <div class="alert alert-danger" role="alert">
+                        {{ session('success') }}
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -56,7 +61,12 @@
                             <td>{{ $toCompany->send_date }}</td>
                             <td>{{ $toCompany->possible_send_flag }}</td>
                             <td>
-                                <a class="btn btn-warning" href="#" role="button">非表示</a>
+                                <form action="{{ route('to_companies.hide', $toCompany->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-warning btn-sm">
+                                        非表示
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @empty
