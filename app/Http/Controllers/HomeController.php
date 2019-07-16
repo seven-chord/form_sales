@@ -30,7 +30,7 @@ class HomeController extends Controller
         $categories = Category::all();
         $pagenate_counts = 30;
 
-        $toCompanies = ToCompany::orderBy('send_date','asc')->paginate($pagenate_counts);
+        $toCompanies = ToCompany::where('is_active', true)->orderBy('send_date','asc')->paginate($pagenate_counts);
         $count = ToCompany::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
         $total_count = ToCompany::orderBy('send_date','asc')->get()->count();
 

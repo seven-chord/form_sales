@@ -22,6 +22,7 @@ class ToCompaniesTableSeeder extends Seeder
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://google.co.jp',
                 'possible_send_flag' => '1',
+                'is_active' => true,
             ],
             [
                 'company_name' => 'testcompany2',
@@ -31,6 +32,7 @@ class ToCompaniesTableSeeder extends Seeder
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://google.co.jp',
                 'possible_send_flag' => '1',
+                'is_active' => true,
             ],
             [
                 'company_name' => 'testcompany3',
@@ -40,6 +42,7 @@ class ToCompaniesTableSeeder extends Seeder
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://google.co.jp',
                 'possible_send_flag' => '1',
+                'is_active' => true,
             ],
 
         ];

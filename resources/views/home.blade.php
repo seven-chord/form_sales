@@ -24,10 +24,14 @@
             <hr>
             <button type="button" class="btn btn-primary">検索</button>
             <hr>
-            <hr>
             <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
         </div>
         <div class="col-md-10">
+            @if (session('success'))
+                <div class="alert alert-danger" role="alert">
+                        {{ session('success') }}
+                </div>
+            @endif
             <table class="table">
                 <thead>
                     <tr>
@@ -56,7 +60,12 @@
                             <td>{{ $toCompany->send_date }}</td>
                             <td>{{ $toCompany->possible_send_flag }}</td>
                             <td>
-                                <a class="btn btn-warning" href="#" role="button">非表示</a>
+                                <form action="{{ route('to_companies.hide', $toCompany->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-warning btn-sm">
+                                        非表示
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @empty

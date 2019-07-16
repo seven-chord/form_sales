@@ -40,6 +40,9 @@ Route::get('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportG
 
 Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportPost');
 
+// 企業非表示
+Route::post('/to_companies/hide/{id}','ToCompaniesController@hide')->name('to_companies.hide');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+

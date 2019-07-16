@@ -59,6 +59,15 @@ class ToCompaniesController extends Controller
         return view('to_companies/insert');
     }
 
+    // 企業を非表示にする
+    public function hide(Request $request)
+    {
+        ToCompany::where('id', $request->id)
+                    ->update(['is_active' => false]);
 
+        session()->flash('success', '非表示にしました。');
+
+        return redirect(route('home'));
+    }
 
 }
