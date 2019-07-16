@@ -43,6 +43,9 @@ Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImport
 // 企業非表示
 Route::post('/to_companies/hide/{id}','ToCompaniesController@hide')->name('to_companies.hide');
 
+// 企業検索
+Route::post('/home/search','HomeController@search')->name('home.search');
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

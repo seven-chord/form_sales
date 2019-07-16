@@ -16,10 +16,11 @@ class ToCompaniesTable extends Migration
         Schema::create('to_companies', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('company_name');
+                $table->unsignedInteger('prefecture_id');
+                $table->unsignedInteger('category_id');
                 $table->string('address_1');
                 $table->string('address_2');
                 $table->string('telephone_1');
-                $table->string('categories');
                 $table->string('contact_url');
                 $table->integer('possible_send_flag'); //1=可能,2=不可,0=まだ
         });

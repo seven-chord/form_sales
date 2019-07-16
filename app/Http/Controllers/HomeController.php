@@ -39,4 +39,27 @@ class HomeController extends Controller
                 ->with('categories', $categories)
                 ->with('toCompanies', $toCompanies);
     }
+
+    public function search(Request $request)
+    {
+        $prefectures = Prefecture::all();
+        $categories = Category::all();
+
+        $query = ToCompany::query();
+
+        if(!empty($request->prefecture_id)){
+            $query->where('prefecture_id', $request->prefecture_id);
+        }
+
+        if(!empty($request->category_id)) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        $toCompanies = $query->paginate(30);
+
+        return view('home')
+                ->with('prefectures', $prefectures)
+                ->with('categories', $categories)
+                ->with('toCompanies', $toCompanies);
+    }
 }
