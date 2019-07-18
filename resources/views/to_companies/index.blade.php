@@ -21,10 +21,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/style.css')}}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
         <!-- Styles -->
       
     </head>
@@ -36,16 +33,6 @@
             width:80%;
         }
     </style>
-
-    <script>
-        
-    </script>
-
-
-<h2 class="hide">会社情報を消す</h2>
-
-    <p class="test"><h2 style="display: none;">hello world</h2></p>
-    
         
         <div class="container-fluid">
                 <table class="table table-bordered">
@@ -68,13 +55,12 @@
 
                         <tr>
                             <td>{{ $company_index++ }}</td>
-                            <td class="company_name">{{ $to_company->company_name }}</td>
-                            <td class="address">{{ $to_company->address_1 }}</td>
+                            <td>{{ $to_company->company_name }}</td>
+                            <td>{{ $to_company->address_1 }}</td>
                             <td>{{ $to_company->address_2 }}</td>
                             <td>{{ $to_company->telephone_1.'-'.$to_company->telephone_2.'-'.$to_company->telephone_3}}</td>
                             <td>{{ $to_company->categories }}</td>
-                            <!-- <td><a href="{{ $to_company->contact_url }}">{{ $to_company->contact_url }}</a></td> -->
-                            <td><a href="{{ 'https://www.google.com/?hl=ja' }}">{{ $to_company->contact_url }}</a></td>
+                            <td><a href="{{ $to_company->contact_url }}">{{ $to_company->contact_url }}</a></td>
                             <td>{{ $to_company->send_date }}</td>
                             <td>{{ $to_company->possible_send_flag }}</td>
                         </tr>
