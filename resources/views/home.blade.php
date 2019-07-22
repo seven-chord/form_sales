@@ -24,11 +24,15 @@
             <hr>
             <button type="button" class="btn btn-primary">検索</button>
             <hr>
+            <p class="btn btn-primary">営業を開始する</p>
             <hr>
             <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
+
         </div>
+
+        <!-- カラム -->
         <div class="col-md-10">
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">No</th>
@@ -43,6 +47,8 @@
                     <th scope="col"></th>
                     </tr>
                 </thead>
+
+        <!-- 企業情報一覧表示ここから -->
                 <tbody>
                     @forelse ($toCompanies as $toCompany)
                         <tr>
@@ -65,6 +71,8 @@
                         </tr>
                     @endforelse
                 </tbody>
+
+        <!-- 企業情報一覧表示ここまで -->
             </table>
         </div>
     </div>
