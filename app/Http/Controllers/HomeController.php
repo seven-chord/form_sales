@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Prefecture;
 use App\Category;
 use App\ToCompany;
+use App\FromCompany;
+
 
 class HomeController extends Controller
 {
@@ -29,6 +31,7 @@ class HomeController extends Controller
         $prefectures = Prefecture::all();
         $categories = Category::all();
         $pagenate_counts = 30;
+        $fromCompanies = FromCompany::all();
 
         $toCompanies = ToCompany::orderBy('send_date','asc')->paginate($pagenate_counts);
         $count = ToCompany::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
@@ -37,6 +40,7 @@ class HomeController extends Controller
         return view('home')
                 ->with('prefectures', $prefectures)
                 ->with('categories', $categories)
+                ->with('fromCompanies', $fromCompanies)
                 ->with('toCompanies', $toCompanies);
     }
 }

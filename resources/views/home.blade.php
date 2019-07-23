@@ -1,6 +1,88 @@
 @extends('layouts.app')
 @section('content')
+
+
+<style>
+.test{
+    display:none;
+}
+
+.container{
+    display:flex;
+}
+.table{
+    width:50%;
+}
+
+.to_comapny_container{
+    width:50%;
+}
+</style>
+
 <div class="container">
+    <table class="table">
+    @forelse ($fromCompanies as $fromCompany)
+        <tr>
+            <th>会社名</th>
+            <td>{{ $fromCompany->company_name}}</td>
+            <td>コピー</td>
+        </tr>
+
+        <tr>
+            <th>郵便番号</th>
+            <td>{{ $fromCompany->postcode}}</td>
+            <td>コピー</td>
+        </tr>
+
+        <tr>
+            <th>住所</th>
+            <td>{{ $fromCompany->address}}</td>
+            <td>コピー</td>
+        </tr>
+
+        <tr>
+            <th>電話番号</th>
+            <td>{{ $fromCompany->telephone}}</td>
+            <td>コピー</td>
+        </tr>
+
+        <tr>
+            <th>ホームページURL</th>
+            <td>{{ $fromCompany->homepage}}</td>
+            <td>コピー</td>
+        </tr>
+
+
+        <tr>
+            <th>email</th>
+            <td>{{ $fromCompany->email}}</td>
+            <td>コピー</td>
+        </tr>
+
+        <tr>
+            <th>営業文</th>
+            <td>{!! nl2br(e($fromCompany->sales_letter)) !!}</td>
+            <td>コピー</td>
+        </tr>
+
+
+
+        @empty
+           <tr>
+                 データが登録されていません。
+           </tr>
+        @endforelse
+
+    </table>
+
+    <div class="to_comapny_container">あああ</div>
+
+</div>
+
+
+<!-- <div class="container"> -->
+<div class="test">
+
     <div class="row justify-content-center">
         <div class="col-md-2">
             <h2>地域</h2>
