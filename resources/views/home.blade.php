@@ -17,6 +17,12 @@
 .to_comapny_container{
     width:50%;
 }
+
+.clipboard-success {
+  display: none;
+  margin: 0 0 0 8px;
+  font-size: .9em;
+}
 </style>
 
 <div class="container">
@@ -24,45 +30,60 @@
     @forelse ($fromCompanies as $fromCompany)
         <tr>
             <th>会社名</th>
-            <td>{{ $fromCompany->company_name}}</td>
-            <td>コピー</td>
+            <td id="company_name">{{ $fromCompany->company_name}}</td>
+            <td class="copy_success">
+                <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+            </td>
         </tr>
 
         <tr>
             <th>郵便番号</th>
-            <td>{{ $fromCompany->postcode}}</td>
-            <td>コピー</td>
+            <td id="postcode">{{ $fromCompany->postcode}}</td>
+            <td class="copy_success">
+                <button class="btn postcode_clipboard" data-clipboard-target="#postcode">コピー</button>
+            </td>
         </tr>
 
         <tr>
             <th>住所</th>
-            <td>{{ $fromCompany->address}}</td>
-            <td>コピー</td>
+            <td id="address">{{ $fromCompany->address}}</td>
+            <td class="copy_success">
+                <button class="btn address_clipboard" data-clipboard-target="#address">コピー</button>
+            </td>
         </tr>
 
         <tr>
             <th>電話番号</th>
             <td>{{ $fromCompany->telephone}}</td>
-            <td>コピー</td>
+            <td class="copy_success">
+                <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+            </td>
         </tr>
 
         <tr>
             <th>ホームページURL</th>
             <td>{{ $fromCompany->homepage}}</td>
-            <td>コピー</td>
+            <td class="copy_success">
+                <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+            </td>
         </tr>
 
 
         <tr>
             <th>email</th>
             <td>{{ $fromCompany->email}}</td>
-            <td>コピー</td>
+            <td class="copy_success">
+                <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+            </td>
         </tr>
 
         <tr>
             <th>営業文</th>
             <td>{!! nl2br(e($fromCompany->sales_letter)) !!}</td>
-            <td>コピー</td>
+            <td class="copy_success">
+                <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+            </td>
+
         </tr>
 
 

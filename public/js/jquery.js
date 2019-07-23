@@ -9,6 +9,20 @@
 // -----------------------------------------------------------------------
 jQuery (function ()
 {
+      var clipboard_company_name = new ClipboardJS('.btn_company_name_clipboard');
+      var clipboard_postcode = new ClipboardJS('.postcode_clipboard');
+
+      // クリップ成功
+      // var copy_success = $('.copy_success').append('<span class="clipboard-success">コピーしました</span>')
+
+      // clipboard.on('success', function(e) {
+      //   $('.clipboard-success').fadeIn(1000).fadeOut(1000);
+      // });
+
+      // clipboard.on('success', function(e) {
+      //   $('.clipboard-success').fadeIn(1000).fadeOut(1000);
+      // });
+
      //依頼企業情報ボタン
     // $(".from_copany_button").click(function(){
     //  $.when(
