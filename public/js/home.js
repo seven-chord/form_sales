@@ -12,6 +12,8 @@ jQuery (function ()
       var clipboard_company_name = new ClipboardJS('.btn_company_name_clipboard');
       var clipboard_postcode = new ClipboardJS('.postcode_clipboard');
 
+      console.log("test");
+
       // クリップ成功
       // var copy_success = $('.copy_success').append('<span class="clipboard-success">コピーしました</span>')
 

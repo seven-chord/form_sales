@@ -23,7 +23,7 @@
 
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/home.js') }}"></script>
     <script src="{{ asset('js/dist/clipboard.min.js') }}"></script>
     
 
