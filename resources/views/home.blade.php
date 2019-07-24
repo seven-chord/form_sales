@@ -98,7 +98,8 @@ iframe{
                 </tr>
 
                 <tr>
-                  <td class="btn btn-primary return_list_button">一覧へ戻る</td>
+                  <td><span class="btn btn-primary return_list_button">一覧へ戻る</span></td>
+                  <td><span class="btn btn-primary next_list_button">次の企業へ</span></td>
                 </tr>
 
 
@@ -116,7 +117,7 @@ iframe{
 
 
             <div class="to_comapny_container" style="margin-left:20px;">
-                     <iframe src="https://bondassociates.co.jp/inquiryform" class="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
+                     <iframe  class="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
             </div>
 
             
@@ -177,7 +178,7 @@ iframe{
                 </thead>
 
         <!-- 企業情報一覧表示ここから -->
-                <tbody>
+                <tbody id="to_company_list">
                     @forelse ($toCompanies as $toCompany)
                         <tr>
                             <th scope="row">{{ $toCompany->id }}</th>
@@ -186,7 +187,7 @@ iframe{
                             <td>{{ $toCompany->address_2 }}</td>
                             <td>{{ $toCompany->telephone_1 }}</td>
                             <td>{{ $toCompany->categories }}</td>
-                            <td>{{ $toCompany->contact_url }}</td>
+                            <td class="to_company_url">{{ $toCompany->contact_url }}</td>
                             <td>{{ $toCompany->send_date }}</td>
                             <td>{{ $toCompany->possible_send_flag }}</td>
                             <td>
