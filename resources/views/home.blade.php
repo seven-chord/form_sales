@@ -98,8 +98,13 @@ iframe{
                 </tr>
 
                 <tr>
-                  <td><span class="btn btn-primary return_list_button">一覧へ戻る</span></td>
-                  <td><span class="btn btn-primary next_list_button">次の企業へ</span></td>
+                  <td><span class="btn btn-primary next_list_possible_button">送付完了->次の企業へ</span></td>
+                  <td><span class="btn btn-primary next_list_impossible_button">送付不可->次の企業へ</span></td>
+                  <td><span class="send_count"></span></td>
+                </tr>
+
+                <tr>
+                   <td><span class="btn btn-primary return_list_button">一覧へ戻る</span></td>
                 </tr>
 
 
