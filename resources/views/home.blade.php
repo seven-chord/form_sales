@@ -3,10 +3,6 @@
 
 
 <style>
-.test{
-    /* display:none; */
-}
-
 .sale_start_container{
     display:flex;
     /* display:none; */
@@ -22,7 +18,18 @@
 .justify-content-center{
     display:none;
 }
-
+iframe{
+    transform:scale(0.75);
+    -o-transform:scale(0.75);
+    -webkit-transform:scale(0.75);
+    -moz-transform:scale(0.75);
+    -ms-transform:scale(0.75);
+    transform-origin:0 0;
+    -o-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -moz-transform-origin:0 0;
+    -ms-transform-origin:0 0;
+}
 </style>
 
 <div class="container">
@@ -90,6 +97,11 @@
                     </td>
                 </tr>
 
+                <tr>
+                  <td class="btn btn-primary return_list_button">一覧へ戻る</td>
+                </tr>
+
+
                 @empty
                 <tr>
                         データが登録されていません。
@@ -97,12 +109,15 @@
                 @endforelse
 
             </table>
+            
             <!-- ------------from_company情報ここまで------------ -->
 
             <!-- ------------to_company情報ここから------------ -->
 
 
-            <div class="to_comapny_container">あああ</div>
+            <div class="to_comapny_container" style="margin-left:20px;">
+                     <iframe src="https://bondassociates.co.jp/inquiryform" class="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
+            </div>
 
             
             <!-- ------------to_company情報ここまで------------ -->
@@ -137,7 +152,7 @@
             <hr>
             <button type="button" class="btn btn-primary">検索</button>
             <hr>
-            <p class="btn btn-primary">営業を開始する</p>
+            <p class="btn btn-primary sales_start_button">営業を開始する</p>
             <hr>
             <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
 

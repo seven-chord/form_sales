@@ -25,31 +25,29 @@ jQuery (function ()
       //   $('.clipboard-success').fadeIn(1000).fadeOut(1000);
       // });
 
-     //依頼企業情報ボタン
-    // $(".from_copany_button").click(function(){
-    //  $.when(
-    //        $('.container-fluid').fadeOut("fast"),
-    //        $('.from_copany_button').fadeOut("fast")
-    //     )
-    //     .done(function(){
-    //       $(".companies_list_button").fadeIn("fast");
-    //       $(".from_company_info").fadeIn("fast");
-    //       $(".to_company_info").fadeIn("fast");
-    //     });
-    // });
+    //  依頼企業情報ボタン
+    $(".sales_start_button").click(function(){
+     $.when(
+           $('.justify-content-center').fadeOut("fast"),
+        //    $('.from_copany_button').fadeOut("fast")
+        )
+        .done(function(){
+          $(".sale_start_container").fadeIn("fast");
+          $(".sale_start_container").css({"display":"flex"});
+        // //   $(".from_company_info").fadeIn("fast");
+        //   $(".to_company_info").fadeIn("fast");
+        });
+    });
   
 
-    // $(".companies_list_button").click(function(){
-    //  $.when(
-    //        $('.companies_list_button').fadeOut("fast"),
-    //        $('.from_company_info').fadeOut("fast"),
-    //        $(".to_company_info").fadeOut("fast")
-    //     )
-    //     .done(function(){
-    //       $(".container-fluid").fadeIn("fast");
-    //       $(".from_copany_button").fadeIn("fast");
-    //     });
-    // });
+    $(".return_list_button").click(function(){
+     $.when(
+           $('.sale_start_container').fadeOut("fast"),
+        )
+        .done(function(){
+          $(".justify-content-center").fadeIn("fast");
+        });
+    });
 
 
 });
