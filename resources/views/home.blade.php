@@ -2,36 +2,6 @@
 @section('content')
 
 
-<style>
-.sale_start_container{
-    display:flex;
-    /* display:none; */
-}
-.from_company_container{
-    width:50%;
-}
-
-.to_comapny_container{
-    width:50%;
-}
-
-.justify-content-center{
-    display:none;
-}
-iframe{
-    transform:scale(0.75);
-    -o-transform:scale(0.75);
-    -webkit-transform:scale(0.75);
-    -moz-transform:scale(0.75);
-    -ms-transform:scale(0.75);
-    transform-origin:0 0;
-    -o-transform-origin:0 0;
-    -webkit-transform-origin:0 0;
-    -moz-transform-origin:0 0;
-    -ms-transform-origin:0 0;
-}
-</style>
-
 <div class="container">
 
     <!-- ------------営業開始ここから------------ -->
@@ -135,7 +105,7 @@ iframe{
 
 
 <!-- <div class="container"> -->
-
+<div id="all_container">
     <div class="row justify-content-center">
         <div class="col-md-2">
             <h2>地域</h2>
@@ -161,6 +131,8 @@ iframe{
             <p class="btn btn-primary sales_start_button">営業を開始する</p>
             <hr>
             <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
+            <hr>
+            <p class="btn btn-primary ajax_button">ajax</p>
 
         </div>
 
@@ -208,7 +180,9 @@ iframe{
 
         <!-- 企業情報一覧表示ここまで -->
             </table>
+            {{$toCompanies->links()}}
         </div>
     </div>
+</div>
 </div>
 @endsection

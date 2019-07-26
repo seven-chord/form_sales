@@ -40,6 +40,9 @@ Route::get('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportG
 
 Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportPost');
 
+//送信完了->次の企業へajax処理
+Route::get('/home/send_date_update','SendDateUpdateController@sendDateUpdate');
+
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

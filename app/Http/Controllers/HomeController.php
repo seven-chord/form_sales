@@ -30,7 +30,7 @@ class HomeController extends Controller
     {
         $prefectures = Prefecture::all();
         $categories = Category::all();
-        $pagenate_counts = 30;
+        $pagenate_counts = 5;
         $fromCompanies = FromCompany::all();
 
         $toCompanies = ToCompany::orderBy('send_date','asc')->paginate($pagenate_counts);

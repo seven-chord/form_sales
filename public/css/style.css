@@ -1,0 +1,27 @@
+.sale_start_container{
+    display:flex;
+    display:none;
+}
+.from_company_container{
+    width:50%;
+}
+
+.to_comapny_container{
+    width:50%;
+}
+
+.justify-content-center{
+    /* display:none; */
+}
+iframe{
+    transform:scale(0.75);
+    -o-transform:scale(0.75);
+    -webkit-transform:scale(0.75);
+    -moz-transform:scale(0.75);
+    -ms-transform:scale(0.75);
+    transform-origin:0 0;
+    -o-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -moz-transform-origin:0 0;
+    -ms-transform-origin:0 0;
+}
