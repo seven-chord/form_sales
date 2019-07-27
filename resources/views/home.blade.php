@@ -85,7 +85,7 @@
                 @endforelse
 
             </table>
-            
+
             <!-- ------------from_company情報ここまで------------ -->
 
             <!-- ------------to_company情報ここから------------ -->
@@ -95,13 +95,13 @@
                      <iframe  class="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
             </div>
 
-            
+
             <!-- ------------to_company情報ここまで------------ -->
 
         <!-- ------------営業開始ここまで------------ -->
 
     </div>
-    
+
 
 
 <!-- <div class="container"> -->
@@ -158,7 +158,7 @@
                 <tbody id="to_company_list">
                     @forelse ($toCompanies as $toCompany)
                         <tr>
-                            <th scope="row">{{ $toCompany->id }}</th>
+                            <th scope="row" class="to_company_id">{{ $toCompany->id }}</th>
                             <td>{{ $toCompany->company_name }}</td>
                             <td>{{ $toCompany->address_1 }}</td>
                             <td>{{ $toCompany->address_2 }}</td>

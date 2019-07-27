@@ -14,7 +14,7 @@ jQuery (function ()
     var clipboard_postcode = new ClipboardJS('.postcode_clipboard');
 
     var next_company_count = 0;
-    
+
     //送付可のカウント数
     var send_posssible_count = 0;
     // if(!send_posssible_count_2 === 0){
@@ -22,10 +22,10 @@ jQuery (function ()
     // }
     //送付数の更新
     var send_count = "送付数 " + send_posssible_count;
-    
 
 
-     
+
+
     //  営業開始ボタン
     $('.sales_start_button').click(function(){
         console.log()
@@ -42,7 +42,7 @@ jQuery (function ()
         //   .css({'transform':'scale(0.75)',
         //         '-o-transform':'scale(0.75)',
         //         '-webkit-transform':'scale(0.75)'
-                    
+
         // });
         $('.send_count').html(send_count);
 
@@ -53,7 +53,7 @@ jQuery (function ()
         //   $(".to_company_info").fadeIn("fast");
         });
     });
-  
+
     //  一覧へ戻るボタン
     $('.return_list_button').click(function(){
      $.when(
@@ -66,24 +66,24 @@ jQuery (function ()
 
 
     //iframe処理ここから
-    
-   
-    
-    
+
+
+
+
     //urlの値を取得
     var to_company_url = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_url').text();
     to_company_change(to_company_url);
 
-
     //「送付完了->次の企業へ」ボタンクリック
     $('.next_list_possible_button').click(function(){
+        var to_company_id = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_id').text();
         next_company_count++;
         send_posssible_count++;
         to_company_url = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_url').text();
+
         send_count = "送付数 " + send_posssible_count;
         $('.send_count').html(send_count);
         to_company_change(to_company_url);
-
         //----------ここからajax処理(送信可能日付をupdate)テスト中！！！！！----------
             $.ajax({
                 headers: {
@@ -92,16 +92,23 @@ jQuery (function ()
                 // url: "{{ action('controller@destroy', ['id' => $user->id]) }}",
                 // url: "{{ action('SendDateUpdateController@sendDateUpdate'}}",
 
-                url: 'http://localhost:8888/home/send_date_update',
-                type: 'GET',
-                // data: "{'user_id': {{ $user->id }}, '_method': 'DELETE'}"
+                url: '/home/send_date_update',
+                type: 'POST',
+                data:{
+                    'to_company_id'  : to_company_id,
+                }
             })
             // Ajaxリクエストが成功した場合
-            .done(function() {
-                console.log('update_success');
+            .done(function(data) {
+                if(data) {
+                    console.log('update_success');
+                } else {
+                    console.log('update_fail');
+                }
             })
             // Ajaxリクエストが失敗した場合
-            .fail(function() {
+            .fail(function(data) {
+                console.log(data);
                 console.log('update_fail');
             });
         //----------ここまでajax処理(送信可能日付をupdate)テスト中！！！！！----------
@@ -136,15 +143,15 @@ jQuery (function ()
     //         context: send_posssible_count,
     //     }).done(function (results) {
     //         // 通信成功時の処理
-            
+
     //         // bodyが読み込み原因
-    //         $('body').html(results); 
-    //         // $('.justify-content-center').html(results.find('.justify-content-center').outerHTML); 
+    //         $('body').html(results);
+    //         // $('.justify-content-center').html(results.find('.justify-content-center').outerHTML);
 
     //         $('.sale_start_container').css({'display':'none'});
     //         var send_count_hiki = "送付数 " + this;
     //         console.log(send_count_hiki);
-            
+
     //     }).fail(function (err) {
     //         // 通信失敗時の処理
     //         alert('ファイルの取得に失敗しました。');
