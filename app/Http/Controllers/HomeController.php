@@ -33,7 +33,7 @@ class HomeController extends Controller
         $pagenate_counts = 5;
         $fromCompanies = FromCompany::all();
 
-        $toCompanies = ToCompany::orderBy('send_date','asc')->paginate($pagenate_counts);
+        $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','0')->paginate($pagenate_counts);
         $count = ToCompany::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
         $total_count = ToCompany::orderBy('send_date','asc')->get()->count();
 
