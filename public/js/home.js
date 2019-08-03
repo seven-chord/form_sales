@@ -12,9 +12,7 @@ jQuery (function ()
 {
     var clipboard_company_name = new ClipboardJS('.btn_company_name_clipboard');
     var clipboard_postcode = new ClipboardJS('.postcode_clipboard');
-
-
-
+    new ClipboardJS('.sales_letter_set_btn');
 
     var next_company_count = 0;
 
@@ -31,7 +29,7 @@ jQuery (function ()
 
     //  営業開始ボタン
     $('.sales_start_button').click(function(){
-        console.log()
+        console.log();
 
      $.when(
            $('.justify-content-center').fadeOut('fast'),
@@ -189,13 +187,14 @@ jQuery (function ()
 
     //  var sales_letter_set = $('#sales_letter_set').text();
 
-    $('.sales_letter_set_btn').click(function(){
-        var sales_letter_set = $('#sales_letter_set');
+    // $('.sales_letter_set_btn').click(function(){
+        // console.log(123)
+        // var sales_letter_set = $('#sales_letter_set');
         // $.clipboard(sales_letter_set).html();
         // console.log(sales_letter_set);
-        sales_letter_set.select();
-        document.execCommand('copy');
-    });
+        // sales_letter_set.select();
+        // document.execCommand('copy');
+    // });
 
 
     // $('.ajax_button').click(function(){
