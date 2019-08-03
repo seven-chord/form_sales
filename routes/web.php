@@ -43,6 +43,10 @@ Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImport
 //送信完了->次の企業へajax処理
 Route::post('/home/send_date_update','SendDateUpdateController@sendDateUpdate');
 
+//送信不可->次の企業へajax処理
+Route::post('/home/send_impossible','SendImpossibleController@sendImpossible');
+
+
 //送信完了->次の企業へajax処理
 Route::post('/home/send_date_update','SendDateUpdateController@sendDateUpdate');
 

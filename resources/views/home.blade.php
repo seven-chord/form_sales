@@ -53,23 +53,27 @@
 
                 <tr>
                     <th>email</th>
-                    <td>{{ $fromCompany->email }}</td>
+                    <td id="email">{{ $fromCompany->email }}</td>
                     <td class="copy_success">
-                        <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+                        <button class="btn email_btn_clipboard" data-clipboard-target="#email">コピー</button>
                     </td>
                 </tr>
 
                 <tr>
                     <th>営業文</th>
-                    <td>{!! nl2br(e($fromCompany->sales_letter)) !!}</td>
+                    <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
+                    <td class="sales_letter">{!!  nl2br(e(str_replace(['\r\n','\r','\n'], ["\r\n","\r","\n"],$fromCompany->sales_letter))) !!}</td>
+                    <td id="sales_letter_set">{!!  nl2br(e(str_replace(['\r\n','\r','\n'], ["\r\n","\r","\n"],$fromCompany->sales_letter))) !!}</td>
+
+
                     <td class="copy_success">
-                        <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+                        <button class="btn sales_letter_set_btn">コピー</button>
                     </td>
                 </tr>
 
                 <tr>
-                  <td><span class="btn btn-primary next_list_possible_button">送付完了->次の企業へ</span></td>
-                  <td><span class="btn btn-primary next_list_impossible_button">送付不可->次の企業へ</span></td>
+                  <td><span class="btn btn-primary next_list_possible_button">送信完了->次の企業へ</span></td>
+                  <td><span class="btn btn-primary next_list_impossible_button">送信不可->次の企業へ</span></td>
                   <td><span class="send_count"></span></td>
                 </tr>
 

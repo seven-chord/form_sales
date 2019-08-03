@@ -25,3 +25,6 @@ iframe{
     -moz-transform-origin:0 0;
     -ms-transform-origin:0 0;
 }
+#sales_letter_set{
+    display: none;
+}
