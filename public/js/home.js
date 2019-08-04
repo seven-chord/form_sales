@@ -10,8 +10,14 @@
 
 jQuery (function ()
 {
-    var clipboard_company_name = new ClipboardJS('.btn_company_name_clipboard');
-    var clipboard_postcode = new ClipboardJS('.postcode_clipboard');
+    new ClipboardJS('.company_name_clipboard');
+    new ClipboardJS('.postcode_clipboard');
+    new ClipboardJS('.address_clipboard');
+    new ClipboardJS('.company_name_clipboard');
+    new ClipboardJS('.telephone_clipboard');
+    new ClipboardJS('.homepage_clipboard');
+    new ClipboardJS('.email_clipboard');
+    new ClipboardJS('.person_in_charge_clipboard');
     new ClipboardJS('.sales_letter_set_btn');
     // var sales_letter_replace = sales_letter.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
     // $('.sales_letter_set_btn').click(function(){

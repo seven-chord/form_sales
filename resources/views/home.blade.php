@@ -14,7 +14,7 @@
                     <th>会社名</th>
                     <td id="company_name">{{ $fromCompany->company_name }}</td>
                     <td class="copy_success">
-                        <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+                        <button class="btn company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
                     </td>
                 </tr>
 
@@ -36,17 +36,17 @@
 
                 <tr>
                     <th>電話番号</th>
-                    <td>{{ $fromCompany->telephone }}</td>
+                    <td id="telephone">{{ $fromCompany->telephone }}</td>
                     <td class="copy_success">
-                        <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+                        <button class="btn telephone_clipboard" data-clipboard-target="#telephone">コピー</button>
                     </td>
                 </tr>
 
                 <tr>
                     <th>ホームページURL</th>
-                    <td>{{ $fromCompany->homepage }}</td>
+                    <td id="homepage">{{ $fromCompany->homepage }}</td>
                     <td class="copy_success">
-                        <button class="btn btn_company_name_clipboard" data-clipboard-target="#company_name">コピー</button>
+                        <button class="btn homepage_clipboard" data-clipboard-target="#homepage">コピー</button>
                     </td>
                 </tr>
 
@@ -55,7 +55,15 @@
                     <th>email</th>
                     <td id="email">{{ $fromCompany->email }}</td>
                     <td class="copy_success">
-                        <button class="btn email_btn_clipboard" data-clipboard-target="#email">コピー</button>
+                        <button class="btn email_clipboard" data-clipboard-target="#email">コピー</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>担当者</th>
+                    <td id="person_in_charge">{{ $fromCompany->person_in_charge }}</td>
+                    <td class="copy_success">
+                        <button class="btn person_in_charge_clipboard" data-clipboard-target="#person_in_charge">コピー</button>
                     </td>
                 </tr>
 
