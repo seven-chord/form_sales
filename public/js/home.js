@@ -13,6 +13,16 @@ jQuery (function ()
     var clipboard_company_name = new ClipboardJS('.btn_company_name_clipboard');
     var clipboard_postcode = new ClipboardJS('.postcode_clipboard');
     new ClipboardJS('.sales_letter_set_btn');
+    // var sales_letter_replace = sales_letter.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+    // $('.sales_letter_set_btn').click(function(){
+    //    var sales_letter_set =  $('#sales_letter_set');
+    //    console.log(sales_letter_set);
+    //    console.log("test");
+
+    // });
+
+    
+
 
     var next_company_count = 0;
 
@@ -25,11 +35,8 @@ jQuery (function ()
     var send_count = "送付数 " + send_posssible_count;
 
 
-
-
     //  営業開始ボタン
     $('.sales_start_button').click(function(){
-        console.log();
 
      $.when(
            $('.justify-content-center').fadeOut('fast'),
@@ -46,9 +53,6 @@ jQuery (function ()
 
         // });
         $('.send_count').html(send_count);
-
-        console.log(send_posssible_count);
-
 
         // //   $(".from_company_info").fadeIn("fast");
         //   $(".to_company_info").fadeIn("fast");

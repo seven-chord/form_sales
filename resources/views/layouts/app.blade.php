@@ -29,19 +29,6 @@
 
 
 </head>
-<script type="text/javascript">
-    var test = document.getElementById('company_name');
-    console.log(test);
-
- test.onclick(function(){
-        var text = document.getElementById('sales_letter_set').select();
-        // $.clipboard(sales_letter_set).html();
-        // console.log(sales_letter_set);
-        text.execCommand('copy'); 
-                // document.execCommand('copy');
-    });
-</script>
-
 
 
 <body>
