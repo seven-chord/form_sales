@@ -68,6 +68,47 @@
                 </tr>
 
                 <tr>
+                    <th>フリガナ（姓）</th>
+                    <td id="kana_sei">{{ $fromCompany->kana_sei }}</td>
+                    <td class="copy_success">
+                        <button class="btn kana_sei_clipboard" data-clipboard-target="#kana_sei">コピー</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>フリガナ（名）</th>
+                    <td id="kana_mei">{{ $fromCompany->kana_mei }}</td>
+                    <td class="copy_success">
+                        <button class="btn kana_mei_clipboard" data-clipboard-target="#kana_mei">コピー</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>ふりがな</th>
+                    <td id="furigana_hiragana">{{ $fromCompany->furigana_hiragana }}</td>
+                    <td class="copy_success">
+                        <button class="btn furigana_hiragana_clipboard" data-clipboard-target="#furigana_hiragana">コピー</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>フリガナ（全部）</th>
+                    <td id="kana_full">{{ $fromCompany->kana_full }}</td>
+                    <td class="copy_success">
+                        <button class="btn kana_full_clipboard" data-clipboard-target="#kana_full">コピー</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>件名</th>
+                    <td id="subject">{{ $fromCompany->subject }}</td>
+                    <td class="copy_success">
+                        <button class="btn subject_clipboard" data-clipboard-target="#subject">コピー</button>
+                    </td>
+                </tr>
+
+
+                <tr>
                     <th>営業文</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
                     <td class="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
@@ -76,7 +117,30 @@
 
                     <td class="copy_success">
                         <button class="btn sales_letter_set_btn" data-clipboard-text="{!!  $fromCompany->sales_letter !!}">コピー</button>
+                    </td>
+                </tr>
 
+                <tr>
+                    <th>営業文（URLなし）</th>
+                    <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
+                    <td class="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
+                    {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
+                    {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}"> --}}
+
+                    <td class="copy_success">
+                        <button class="btn sales_letter_url_none_set_btn" data-clipboard-text="{!!  $fromCompany->sales_letter_url_none !!}">コピー</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>営業文（300文字以内）</th>
+                    <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
+                    <td class="sales_letter_300_words">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
+                    {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
+                    {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_300_words)) !!}"> --}}
+
+                    <td class="copy_success">
+                        <button class="btn sales_letter_300_words_btn" data-clipboard-text="{!!  $fromCompany->sales_letter_300_words !!}">コピー</button>
                     </td>
                 </tr>
 
@@ -105,7 +169,7 @@
 
 
             <div class="to_comapny_container" style="margin-left:20px;">
-                     <iframe  class="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
+                     <iframe  class="to_comapny_page" style="width:130%;height:1300px;border-radius:5px;"></iframe>
             </div>
 
 
