@@ -14,7 +14,7 @@ class AddColumnPersonInChargeColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('person_in_charge');
+            $table->string('person_in_charge')->nullable();
         });
     }
 

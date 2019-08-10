@@ -14,7 +14,7 @@ class AddSalesLetterUrlNoneColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->longText('sales_letter_url_none');	
+            $table->longText('sales_letter_url_none')->nullable();
         });
     }
 

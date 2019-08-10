@@ -14,8 +14,8 @@ class AddKanaColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('kana_sei');
-            $table->string('kana_mei');
+            $table->string('kana_sei')->nullable();
+            $table->string('kana_mei')->nullable();
         });
     }
 

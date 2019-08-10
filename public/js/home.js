@@ -39,15 +39,40 @@ jQuery (function ()
 
     //  営業開始ボタン
     $('.sales_start_button').click(function(){
-
+        var from_company_id = $('.from-company option:selected').val();
+        // console.log(from_company_id);
      $.when(
            $('.justify-content-center').fadeOut('fast'),
         //    $('.from_copany_button').fadeOut("fast")
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/home/get_from_company',
+                type: 'GET',
+                data:{
+                    'from_company_id'  : from_company_id,
+                }
+            })
         )
-        .done(function(){
+        .done(function(a1, fromCompanyInfo){
+
           $('.sale_start_container').fadeIn('fast');
           $('.sale_start_container').css({'display':'flex'});
           $('.from_company_container').css({'width':'50%'});
+
+          console.log(fromCompanyInfo)
+          fromCompany = fromCompanyInfo[0]
+          $('#company_name').html(fromCompany.company_name)
+          $('#postcode').html(fromCompany.postcode)
+          $('#address').html(fromCompany.address)
+          $('#telephone').html(fromCompany.telephone)
+          $('#homepage').html(fromCompany.homepage)
+          $('#email').html(fromCompany.email)
+          $('#person_in_charge').html(fromCompany.person_in_charge)
+          $('#sales_letter').html(fromCompany.sales_letter)
+
         //   $('iframe')
         //   .css({'transform':'scale(0.75)',
         //         '-o-transform':'scale(0.75)',
@@ -213,7 +238,7 @@ jQuery (function ()
        });
      });
 
-  
+
 
 });
 // -----------------------------------------------------------------------

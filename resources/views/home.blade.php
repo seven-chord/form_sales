@@ -9,7 +9,6 @@
 
             <!-- ------------from_company情報ここから------------ -->
             <table class="table from_company_container">
-            @forelse ($fromCompanies as $fromCompany)
                 <tr>
                     <th>会社名</th>
                     <td id="company_name">{{ $fromCompany->company_name }}</td>
@@ -111,7 +110,7 @@
                 <tr>
                     <th>営業文</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
-                    <td class="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
+                    <td id="sales_letter" class="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter)) !!}"> --}}
 
@@ -154,13 +153,6 @@
                    <td><span class="btn btn-primary return_list_button">一覧へ戻る</span></td>
                 </tr>
 
-
-                @empty
-                <tr>
-                        データが登録されていません。
-                </tr>
-                @endforelse
-
             </table>
 
             <!-- ------------from_company情報ここまで------------ -->
@@ -185,7 +177,7 @@
 <div id="all_container">
     <div class="row justify-content-center">
         <div class="col-md-2">
-            <h2>地域</h2>
+            {{-- <h2>地域</h2>
             <select class="form-control">
                 @forelse ($prefectures as $prefecture)
                     <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
@@ -204,6 +196,17 @@
             </select>
             <hr>
             <button type="button" class="btn btn-primary">検索</button>
+            <hr> --}}
+            <h3>送信元企業を選択</h3>
+            <select class="form-control from-company">
+                @forelse ($fromCompanies as $company)
+                    <option value="{{ $company->id }}">{{ $company->company_name }}</option>
+                @empty
+                    <option value="">-</option>
+                @endforelse
+            </select>
+            {{-- <hr>
+            <button type="button" class="btn btn-primary">検索</button> --}}
             <hr>
             <p class="btn btn-primary sales_start_button">営業を開始する</p>
             <hr>

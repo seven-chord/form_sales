@@ -14,7 +14,7 @@ class UpdateColumnContactUrlColumn extends Migration
     public function up()
     {
         Schema::table('to_companies', function (Blueprint $table) {
-            $table->longText('contact_url');
+            $table->longText('contact_url')->nullable();
         });
     }
 

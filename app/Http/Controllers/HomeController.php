@@ -31,6 +31,7 @@ class HomeController extends Controller
         $prefectures = Prefecture::all();
         $categories = Category::all();
         $pagenate_counts = 100;
+        $fromCompany = FromCompany::where('id', 1)->first();
         $fromCompanies = FromCompany::all();
 
         $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','0')->paginate($pagenate_counts);
@@ -40,7 +41,15 @@ class HomeController extends Controller
         return view('home')
                 ->with('prefectures', $prefectures)
                 ->with('categories', $categories)
+                ->with('fromCompany', $fromCompany)
                 ->with('fromCompanies', $fromCompanies)
                 ->with('toCompanies', $toCompanies);
+    }
+
+    public function getFromCompany(Request $request)
+    {
+        $fromCompanyInfo = FromCompany::where('id', $request->from_company_id)->first();
+
+        return $fromCompanyInfo;
     }
 }

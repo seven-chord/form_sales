@@ -14,7 +14,7 @@ class AddSalesLetter300WordsColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->longText('sales_letter_300_words');	
+            $table->longText('sales_letter_300_words')->nullable();
         });
     }
 

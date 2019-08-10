@@ -14,7 +14,7 @@ class AddColumnSubjectColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('subject');
+            $table->string('subject')->nullable();
         });
     }
 

@@ -14,7 +14,7 @@ class AddKanaFullColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('kana_full');
+            $table->string('kana_full')->nullable();
         });
     }
 

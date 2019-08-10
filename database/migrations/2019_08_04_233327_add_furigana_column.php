@@ -14,7 +14,7 @@ class AddFuriganaColumn extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('furigana_hiragana');
+            $table->string('furigana_hiragana')->nullable();
         });
     }
 

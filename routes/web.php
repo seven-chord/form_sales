@@ -50,7 +50,8 @@ Route::post('/home/send_impossible','SendImpossibleController@sendImpossible');
 //送信完了->次の企業へajax処理
 Route::post('/home/send_date_update','SendDateUpdateController@sendDateUpdate');
 
-
+//from_company情報取得
+Route::get('/home/get_from_company','HomeController@getFromCompany');
 
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
