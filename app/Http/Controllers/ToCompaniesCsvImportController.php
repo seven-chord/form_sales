@@ -67,28 +67,21 @@ class ToCompaniesCsvImportController extends Controller
                 if($row_count > 1)
                 {
                     //エンコーディング
-                    $company_name =  mb_convert_encoding($row[0], 'UTF-8', 'SJIS');
-                    $address_1    =  mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
-                    $address_2    =  mb_convert_encoding($row[2], 'UTF-8', 'SJIS');
-                    $telephone_1  =  mb_convert_encoding($row[3], 'UTF-8', 'SJIS');
-                    $telephone_2  =  mb_convert_encoding($row[4], 'UTF-8', 'SJIS');
-                    $telephone_3  =  mb_convert_encoding($row[5], 'UTF-8', 'SJIS');
-                    $categories   =  mb_convert_encoding($row[6], 'UTF-8', 'SJIS');
-                    $contact_url  =  mb_convert_encoding($row[7], 'UTF-8', 'SJIS');
+                    $company_name =  $row[0];
+                    $telephone_1  =  mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
+                    $contact_url  =  mb_convert_encoding($row[2], 'UTF-8', 'SJIS');
 
                     //現在時刻を取得
                     $now = Carbon::now();
                     $csvimport_array = [
                         'company_name' => $company_name,
-                        'address_1' => $address_1,
-                        'address_2' => $address_2,
+                        'address_1' => '関東',
+                        'address_2' => '関東',
                         'telephone_1' => $telephone_1,
-                        'telephone_2' => $telephone_2,
-                        'telephone_3' => $telephone_3,
-                        'categories' => $categories,
-                        'contact_url' => $contact_url,
-                        'possible_send_flag' => 1,
+                        'categories' => 'en転職',
+                        'possible_send_flag' => 0,
                         'send_date' => $now,
+                        'contact_url' => $contact_url
                     ];
 
                     array_push($insert_array,$csvimport_array);
@@ -101,14 +94,14 @@ class ToCompaniesCsvImportController extends Controller
             $array_count = count($insert_array);
 
 
-            if($array_count < 500){
+            if($array_count < 50){
 
                 //to_companiesテーブルへバルクインサート
                 ToCompanyCsvImport::insert($insert_array);
 
             }else{
                 //追加した配列が500以上なら、array_chunkで500ずつ分割する
-                $array_partial = array_chunk($insert_array, 500); //配列
+                $array_partial = array_chunk($insert_array, 50); //配列
 
 
                 //分割した数を数えて

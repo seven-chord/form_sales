@@ -19,25 +19,21 @@ jQuery (function ()
     new ClipboardJS('.email_clipboard');
     new ClipboardJS('.person_in_charge_clipboard');
     new ClipboardJS('.sales_letter_set_btn');
-    // var sales_letter_replace = sales_letter.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-    // $('.sales_letter_set_btn').click(function(){
-    //    var sales_letter_set =  $('#sales_letter_set');
-    //    console.log(sales_letter_set);
-    //    console.log("test");
+    new ClipboardJS('.subject_clipboard');
+    new ClipboardJS('.kana_sei_clipboard');
+    new ClipboardJS('.kana_mei_clipboard');
+    new ClipboardJS('.furigana_hiragana_clipboard');
+    new ClipboardJS('.kana_full_clipboard');
+    new ClipboardJS('.sales_letter_url_none_set_btn');
+    new ClipboardJS('.sales_letter_300_words_btn');
 
-    // });
 
-    
 
 
     var next_company_count = 0;
 
     //送付可のカウント数
     var send_posssible_count = 0;
-    // if(!send_posssible_count_2 === 0){
-    //     send_posssible_count = send_posssible_count_2;
-    // }
-    //送付数の更新
     var send_count = "送付数 " + send_posssible_count;
 
 
@@ -100,9 +96,6 @@ jQuery (function ()
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                // url: "{{ action('controller@destroy', ['id' => $user->id]) }}",
-                // url: "{{ action('SendDateUpdateController@sendDateUpdate'}}",
-
                 url: '/home/send_date_update',
                 type: 'POST',
                 data:{
@@ -141,8 +134,6 @@ jQuery (function ()
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            // url: "{{ action('controller@destroy', ['id' => $user->id]) }}",
-            // url: "{{ action('SendDateUpdateController@sendDateUpdate'}}",
 
             url: '/home/send_impossible',
             type: 'POST',
@@ -183,7 +174,7 @@ jQuery (function ()
 
     //営業メール文省略
     $(function() {
-        var count = 40;
+        var count = 30;
       $('.sales_letter').each(function() {
           var thisText = $(this).text();
            var textLength = thisText.length;
@@ -195,32 +186,34 @@ jQuery (function ()
        });
      });
 
-    //  var sales_letter_set = $('#sales_letter_set').text();
 
-    // $('.sales_letter_set_btn').click(function(){
-        // console.log(123)
-        // var sales_letter_set = $('#sales_letter_set');
-        // $.clipboard(sales_letter_set).html();
-        // console.log(sales_letter_set);
-        // sales_letter_set.select();
-        // document.execCommand('copy');
-    // });
+     $(function() {
+        var count = 30;
+      $('.sales_letter_url_none').each(function() {
+          var thisText = $(this).text();
+           var textLength = thisText.length;
+            if (textLength > count) {
+               var showText = thisText.substring(0, count);
+               var insertText = showText += '…';
+               $(this).html(insertText);
+           };
+       });
+     });
 
+     $(function() {
+        var count = 30;
+      $('.sales_letter_300_words').each(function() {
+          var thisText = $(this).text();
+           var textLength = thisText.length;
+            if (textLength > count) {
+               var showText = thisText.substring(0, count);
+               var insertText = showText += '…';
+               $(this).html(insertText);
+           };
+       });
+     });
 
-    // $('.ajax_button').click(function(){
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: 'http://localhost:8888/home?page=2', // url: は読み込むURLを表す
-    //         dataType: 'html', // 読み込むデータの種類を記入
-    //         context: send_posssible_count,
-    //         success:function(data){
-    //             console.log("test");
-    //             $('body').html(data);
-    //         }
-    //     })
-    // });
-
-
+  
 
 });
 // -----------------------------------------------------------------------
