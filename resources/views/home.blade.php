@@ -110,12 +110,14 @@
                 <tr>
                     <th>営業文</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
-                    <td id="sales_letter" class="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
+                    <td class="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter)) !!}"> --}}
 
                     <td class="copy_success">
                         <button class="btn sales_letter_set_btn" data-clipboard-text="{!!  $fromCompany->sales_letter !!}">コピー</button>
+                        <!-- <button class="btn sales_letter_set_btn" data-clipboard-text="#sales_letter">コピー</button> -->
+
                     </td>
                 </tr>
 

@@ -62,7 +62,6 @@ jQuery (function ()
           $('.sale_start_container').css({'display':'flex'});
           $('.from_company_container').css({'width':'50%'});
 
-          console.log(fromCompanyInfo)
           fromCompany = fromCompanyInfo[0]
           $('#company_name').html(fromCompany.company_name)
           $('#postcode').html(fromCompany.postcode)
@@ -73,16 +72,8 @@ jQuery (function ()
           $('#person_in_charge').html(fromCompany.person_in_charge)
           $('#sales_letter').html(fromCompany.sales_letter)
 
-        //   $('iframe')
-        //   .css({'transform':'scale(0.75)',
-        //         '-o-transform':'scale(0.75)',
-        //         '-webkit-transform':'scale(0.75)'
-
-        // });
+     
         $('.send_count').html(send_count);
-
-        // //   $(".from_company_info").fadeIn("fast");
-        //   $(".to_company_info").fadeIn("fast");
         });
     });
 
@@ -197,7 +188,7 @@ jQuery (function ()
         return str.length <= len ? str: (str.substr(0, len)+"...");
       }
 
-    //営業メール文省略
+    //-----------営業メール文省略ここから-----------
     $(function() {
         var count = 30;
       $('.sales_letter').each(function() {
@@ -237,6 +228,30 @@ jQuery (function ()
            };
        });
      });
+
+    //-----------営業メール文省略ここまで-----------
+
+
+
+     //----------ショートカットここから----------
+     $(function() {
+ 
+        shortcut.add("Shift+1",function() {
+            $('.company_name_clipboard').click();
+        });
+
+        shortcut.add("Shift+2",function() {
+            $('.postcode_clipboard').click();
+        });
+
+
+        shortcut.add("Shift+3",function() {
+            $('.sales_letter_set_btn').click();
+        });
+
+      
+    });
+
 
 
 
