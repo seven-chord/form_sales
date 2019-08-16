@@ -11,21 +11,39 @@
 jQuery (function ()
 {
     new ClipboardJS('.company_name_clipboard');
+    new ClipboardJS('.company_name_kana_clipboard');
     new ClipboardJS('.postcode_clipboard');
+    new ClipboardJS('.division_clipboard');
+
+
     new ClipboardJS('.address_clipboard');
-    new ClipboardJS('.company_name_clipboard');
+    new ClipboardJS('.municipalities_and_number_clipboard');
+    new ClipboardJS('.municipalities_clipboard');
+    new ClipboardJS('.building_name_clipboard');
+
+
     new ClipboardJS('.telephone_clipboard');
     new ClipboardJS('.homepage_clipboard');
     new ClipboardJS('.email_clipboard');
+
     new ClipboardJS('.person_in_charge_clipboard');
-    new ClipboardJS('.sales_letter_set_btn');
-    new ClipboardJS('.subject_clipboard');
+    new ClipboardJS('.person_in_charge_sei_clipboard');
+    new ClipboardJS('.person_in_charge_mei_clipboard');
+
+    new ClipboardJS('.kana_full_clipboard');
     new ClipboardJS('.kana_sei_clipboard');
     new ClipboardJS('.kana_mei_clipboard');
+
+
     new ClipboardJS('.furigana_hiragana_clipboard');
-    new ClipboardJS('.kana_full_clipboard');
+    new ClipboardJS('.furigana_sei_clipboard');
+    new ClipboardJS('.furigana_mei_clipboard');
+
+    new ClipboardJS('.subject_clipboard');
+    new ClipboardJS('.sales_letter_set_btn');
     new ClipboardJS('.sales_letter_url_none_set_btn');
     new ClipboardJS('.sales_letter_300_words_btn');
+
 
 
 
@@ -61,19 +79,7 @@ jQuery (function ()
           $('.sale_start_container').fadeIn('fast');
           $('.sale_start_container').css({'display':'flex'});
           $('.from_company_container').css({'width':'50%'});
-
-          fromCompany = fromCompanyInfo[0]
-          $('#company_name').html(fromCompany.company_name)
-          $('#postcode').html(fromCompany.postcode)
-          $('#address').html(fromCompany.address)
-          $('#telephone').html(fromCompany.telephone)
-          $('#homepage').html(fromCompany.homepage)
-          $('#email').html(fromCompany.email)
-          $('#person_in_charge').html(fromCompany.person_in_charge)
-          $('#sales_letter').html(fromCompany.sales_letter)
-
-     
-        $('.send_count').html(send_count);
+          $('.send_count').html(send_count);
         });
     });
 
@@ -86,9 +92,6 @@ jQuery (function ()
           $('.justify-content-center').fadeIn('fast');
         });
     });
-
-
-    //iframe処理ここから
 
 
 
@@ -189,45 +192,18 @@ jQuery (function ()
       }
 
     //-----------営業メール文省略ここから-----------
-    $(function() {
-        var count = 30;
-      $('.sales_letter').each(function() {
-          var thisText = $(this).text();
-           var textLength = thisText.length;
-            if (textLength > count) {
-               var showText = thisText.substring(0, count);
-               var insertText = showText += '…';
-               $(this).html(insertText);
-           };
-       });
-     });
 
-
-     $(function() {
-        var count = 30;
-      $('.sales_letter_url_none').each(function() {
-          var thisText = $(this).text();
-           var textLength = thisText.length;
-            if (textLength > count) {
-               var showText = thisText.substring(0, count);
-               var insertText = showText += '…';
-               $(this).html(insertText);
-           };
-       });
+    $('.short_character').each(function() {
+        var count = 10;
+        var thisText = $(this).text();
+         var textLength = thisText.length;
+          if (textLength > count) {
+             var showText = thisText.substring(0, count);
+             var insertText = showText += '…';
+             $(this).html(insertText);
+         };
      });
-
-     $(function() {
-        var count = 30;
-      $('.sales_letter_300_words').each(function() {
-          var thisText = $(this).text();
-           var textLength = thisText.length;
-            if (textLength > count) {
-               var showText = thisText.substring(0, count);
-               var insertText = showText += '…';
-               $(this).html(insertText);
-           };
-       });
-     });
+    
 
     //-----------営業メール文省略ここまで-----------
 
@@ -249,10 +225,23 @@ jQuery (function ()
             $('.sales_letter_set_btn').click();
         });
 
-      
     });
+     
+    //----------ショートカットここまで----------
 
 
+
+    //window.children
+    $('iframe').on('load',function(){
+        console.log("te");
+        var iframe = $('iframe').contents();
+
+    iframe.find("body").click(function(){
+           alert("test");
+    });
+   });
+
+   
 
 
 });

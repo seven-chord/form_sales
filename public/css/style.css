@@ -4,6 +4,16 @@
 }
 .from_company_container{
     width:50%;
+    font-size:14px;
+}
+
+button{
+    border-radius:5px;
+    font-size:10px;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 .to_comapny_container{
@@ -27,4 +37,21 @@ iframe{
 }
 #sales_letter_set{
     display: none;
+}
+
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 5px;  /* 5px の値を変更 */
+}
+
+p{
+    line-height: 1em;
+}
+
+tr{
+    line-height: 1em;
 }
