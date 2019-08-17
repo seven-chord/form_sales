@@ -21,8 +21,8 @@
                         <p>会社名カナ（ショートカット）</p>
                     </th>
                     <td>
-                         <p class="short_character">{{ $fromCompany->company_name }}</p>
-                         <p class="short_character">{{ $fromCompany->company_name_kana }}</p>
+                         <p id="company_name">{{ $fromCompany->company_name }}</p>
+                         <p id="company_name_kana">{{ $fromCompany->company_name_kana }}</p>
                     </td>
                     <td class="copy_success">
                         <p><button class="company_name_clipboard" data-clipboard-text="{!! $fromCompany->company_name !!}">コピー</button></p>
@@ -34,7 +34,7 @@
                     <th>
                         <p>郵便番号（ショートカット）</p>
                     </th>
-                    <td class="postcode">{{ $fromCompany->postcode }}</td>
+                    <td id="postcode">{{ $fromCompany->postcode }}</td>
                     <td class="copy_success">
                         <button class="postcode_clipboard" data-clipboard-text="{!! $fromCompany->postcode !!}">コピー</button>
                     </td>
@@ -44,7 +44,7 @@
                     <th>
                         <p>事業部名（ショートカット）</p>
                     </th>
-                    <td class="short_character">{{ $fromCompany->division }}</td>
+                    <td id="division">{{ $fromCompany->division }}</td>
                     <td class="copy_success">
                         <button class="division_clipboard" data-clipboard-text="{!! $fromCompany->division !!}">コピー</button>
                     </td>
@@ -58,10 +58,10 @@
                         <p>建物名（）</p>    
                     </th>
                     <td>
-                        <p class="short_character">{{ $fromCompany->address }}</p>
-                        <p class="short_character">{{ $fromCompany->municipalities_and_number }}</p>
-                        <p class="short_character">{{ $fromCompany->municipalities }}</p>
-                        <p class="short_character">{{ $fromCompany->building_name }}</p>
+                        <p id="address">{{ $fromCompany->address }}</p>
+                        <p id="municipalities_and_number">{{ $fromCompany->municipalities_and_number }}</p>
+                        <p id="municipalities">{{ $fromCompany->municipalities }}</p>
+                        <p id="building_name">{{ $fromCompany->building_name }}</p>
                     </td>
                     <td class="copy_success">
                         <p><button class="address_clipboard" data-clipboard-text="{!! $fromCompany->address !!}">コピー</button></p>
@@ -73,7 +73,7 @@
 
                 <tr>
                     <th>電話番号</th>
-                    <td class="telephone">{{ $fromCompany->telephone }}</td>
+                    <td id="telephone">{{ $fromCompany->telephone }}</td>
                     <td class="copy_success">
                         <button class="telephone_clipboard" data-clipboard-text="{!! $fromCompany->telephone !!}">コピー</button>
                     </td>
@@ -81,7 +81,7 @@
 
                 <tr>
                     <th>ホームページURL</th>
-                    <td class="short_character">{{ $fromCompany->homepage }}</td>
+                    <td id="homepage">{{ $fromCompany->homepage }}</td>
                     <td class="copy_success">
                         <button class="homepage_clipboard" data-clipboard-text="{!! $fromCompany->homepage !!}">コピー</button>
                     </td>
@@ -90,7 +90,7 @@
 
                 <tr>
                     <th>email</th>
-                    <td class="short_character">{{ $fromCompany->email }}</td>
+                    <td id="email">{{ $fromCompany->email }}</td>
                     <td class="copy_success">
                         <button class="email_clipboard" data-clipboard-text="{!! $fromCompany->email !!}">コピー</button>
                     </td>
@@ -103,9 +103,9 @@
                         <p>担当者-名（）</p>
                     </th>
                     <td>
-                        <p>{{ $fromCompany->person_in_charge }}</p>
-                        <p>{{ $fromCompany->person_in_charge_sei }}</p>
-                        <p>{{ $fromCompany->person_in_charge_mei }}</p>
+                        <p id="person_in_charge">{{ $fromCompany->person_in_charge }}</p>
+                        <p id="person_in_charge_sei">{{ $fromCompany->person_in_charge_sei }}</p>
+                        <p id="person_in_charge_mei">{{ $fromCompany->person_in_charge_mei }}</p>
                     </td>
                     <td class="copy_success">
                         <p><button class="person_in_charge_clipboard" data-clipboard-text="{!! $fromCompany->person_in_charge !!}">コピー</button></p>
@@ -121,9 +121,9 @@
                         <p>フリガナ-名（）</p>
                     </th>
                     <td>
-                        <p>{{ $fromCompany->kana_full }}</p>
-                        <p>{{ $fromCompany->kana_sei }}</p>
-                        <p>{{ $fromCompany->kana_mei }}</p>
+                        <p id="kana_full">{{ $fromCompany->kana_full }}</p>
+                        <p id="kana_sei">{{ $fromCompany->kana_sei }}</p>
+                        <p id="kana_mei">{{ $fromCompany->kana_mei }}</p>
                     </td>
                     <td class="copy_success">
                         <p><button class="kana_full_clipboard" data-clipboard-text="{!! $fromCompany->kana_full !!}">コピー</button></p>
@@ -140,9 +140,9 @@
                         <p>ふりがな-名（）</p>
                     </th>
                     <td>
-                        <p>{{ $fromCompany->furigana_hiragana }}</p>
-                        <p>{{ $fromCompany->furigana_sei }}</p>
-                        <p>{{ $fromCompany->furigana_mei }}</p>
+                        <p id="furigana_hiragana">{{ $fromCompany->furigana_hiragana }}</p>
+                        <p id="furigana_sei">{{ $fromCompany->furigana_sei }}</p>
+                        <p id="furigana_mei">{{ $fromCompany->furigana_mei }}</p>
                     </td>
                     <td class="copy_success">
                         <p><button class="furigana_hiragana_clipboard" data-clipboard-text="{!! $fromCompany->furigana_hiragana !!}">コピー</button></p>
@@ -154,7 +154,7 @@
 
                 <tr>
                     <th>件名（）</th>
-                    <td class="short_character">{{ $fromCompany->subject }}</td>
+                    <td id="subject">{{ $fromCompany->subject }}</td>
                     <td class="copy_success">
                         <button class="subject_clipboard" data-clipboard-text="{!! $fromCompany->subject !!}">コピー</button>
                     </td>
@@ -163,7 +163,7 @@
 
                 <tr>
                     <th>営業文（）</th>
-                    <td class="short_character">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
+                    <td id="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter)) !!}"> --}}
 
@@ -177,7 +177,7 @@
                 <tr>
                     <th>営業文-URLなし（）</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
-                    <td class="short_character">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
+                    <td id="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}"> --}}
 
@@ -189,7 +189,7 @@
                 <tr>
                     <th>営業文-300文字（）</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
-                    <td class="short_character">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
+                    <td id="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_300_words)) !!}"> --}}
 
