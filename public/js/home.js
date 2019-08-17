@@ -40,9 +40,9 @@ jQuery (function ()
     new ClipboardJS('.furigana_mei_clipboard');
 
     new ClipboardJS('.subject_clipboard');
-    new ClipboardJS('.sales_letter_set_btn');
-    new ClipboardJS('.sales_letter_url_none_set_btn');
-    new ClipboardJS('.sales_letter_300_words_btn');
+    new ClipboardJS('.sales_letter_clipboard');
+    new ClipboardJS('.sales_letter_url_none_clipboard');
+    new ClipboardJS('.sales_letter_300_words_clipboard');
 
 
 
@@ -210,37 +210,99 @@ jQuery (function ()
 
 
      //----------ショートカットここから----------
-     $(function() {
+     var shortcut_data = [
+         { shortcut:'Shift+1', clipboard_class:'company_name_clipboard'},
+         { shortcut:'Shift+2', clipboard_class:'company_name_kana_clipboard'},
+         { shortcut:'Shift+3', clipboard_class:'postcode_clipboard'},
+         { shortcut:'Shift+4', clipboard_class:'division_clipboard'},
+         { shortcut:'Shift+q', clipboard_class:'address_clipboard'},
+         { shortcut:'Shift+w', clipboard_class:'municipalities_and_number_clipboard'},
+         { shortcut:'Shift+e', clipboard_class:'municipalities_clipboard'},
+         { shortcut:'Shift+r', clipboard_class:'building_name_clipboard'},
+         { shortcut:'Shift+a', clipboard_class:'person_in_charge_clipboard'},
+         { shortcut:'Shift+s', clipboard_class:'person_in_charge_sei_clipboard'},
+         { shortcut:'Shift+d', clipboard_class:'person_in_charge_mei_clipboard'},
+         { shortcut:'Shift+z', clipboard_class:'kana_full_clipboard'},
+         { shortcut:'Shift+x', clipboard_class:'kana_sei_clipboard'},
+         { shortcut:'Shift+c', clipboard_class:'kana_mei_clipboard'},
+         { shortcut:'Shift+f', clipboard_class:'furigana_hiragana_clipboard'},
+         { shortcut:'Shift+g', clipboard_class:'furigana_sei_clipboard'},
+         { shortcut:'Shift+h', clipboard_class:'furigana_mei_clipboard'},
+         { shortcut:'Shift+v', clipboard_class:'sales_letter_clipboard'},
+         { shortcut:'Shift+b', clipboard_class:'sales_letter_url_none_clipboard'},
+         { shortcut:'Shift+n', clipboard_class:'sales_letter_300_words_clipboard'},
+     ]
+
+     $.each(shortcut_data,function(property,value){
+        shortcut.add(value.shortcut,function() {
+            $('.' + value.clipboard_class).click();
+            $('.' + value.clipboard_class).css('border','1.5px solid orange');
+            setTimeout(function(){
+                $('.' + value.clipboard_class).css('border','1px solid rgb(216, 216, 216)');
+            },200)
+         });
+     })
+
+    //  for(key in shortcut_data){
+    //     //  console.log(shortcut_data[key].shortcut);
+    //     //  console.log(shortcut_data[key].clipboard_class);
+    //      shortcut.add(shortcut_data[key].shortcut,function() {
+    //         $('.' + shortcut_data[key].clipboard_class).click();
+    //         $('.' + shortcut_data[key].clipboard_class).css('border','1.5px solid orange');
+    //         setTimeout(function(){
+    //             $('.' + shortcut_data[key].clipboard_class).css('border','1px solid rgb(216, 216, 216)');
+    //         },200)
+    //      });
+
+    //  }
+
+
+    //  for(key in shortcut_data){
+    //     //  console.log(shortcut_data[key].shortcut);
+    //     //  console.log(shortcut_data[key].clipboard_class);
+    //      shortcut.add(shortcut_data[key].shortcut,function() {
+    //         $('.' + shortcut_data[key].clipboard_class).click();
+    //         $('.' + shortcut_data[key].clipboard_class).css('border','1.5px solid orange');
+    //         setTimeout(function(){
+    //             $('.' + shortcut_data[key].clipboard_class).css('border','1px solid rgb(216, 216, 216)');
+    //         },200)
+
+    //      });
+
+    //  }
+
+   
+     
+
+    //  $(function() {
  
-        shortcut.add("Shift+1",function() {
-            $('.company_name_clipboard').click();
-        });
 
-        shortcut.add("Shift+2",function() {
-            $('.postcode_clipboard').click();
-        });
+    //     shortcut.add("Shift+1",function() {
+    //         $('.company_name_clipboard').click();
+    //         $('.company_name_clipboard').css('border','1.5px solid orange');
+    //         setTimeout(function(){
+    //             $('.company_name_clipboard').css('border','1px solid rgb(216, 216, 216)');
+    //         },200)
+            
+    //     });
+
+    //     shortcut.add("Shift+2",function() {
+    //         $('.company_name_kana_clipboard').click();
+    //     });
+
+    //     shortcut.add("Shift+3",function() {
+    //         $('.postcode_clipboard').click();
+    //     });
 
 
-        shortcut.add("Shift+3",function() {
-            $('.sales_letter_set_btn').click();
-        });
+    //     shortcut.add("Shift+4",function() {
+    //         $('.division_clipboard').click();
+    //     });
 
-    });
+    // });
      
     //----------ショートカットここまで----------
-
-
-
-    //window.children
-    $('iframe').on('load',function(){
-        console.log("te");
-        var iframe = $('iframe').contents();
-
-    iframe.find("body").click(function(){
-           alert("test");
-    });
-   });
-
+  
    
 
 

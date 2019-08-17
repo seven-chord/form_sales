@@ -168,7 +168,7 @@
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter)) !!}"> --}}
 
                     <td class="copy_success">
-                        <button class="sales_letter_set_btn" data-clipboard-text="{!!  $fromCompany->sales_letter !!}">コピー</button>
+                        <button class="sales_letter_clipboard" data-clipboard-text="{!!  $fromCompany->sales_letter !!}">コピー</button>
                         <!-- <button class="btn sales_letter_set_btn" data-clipboard-text="#sales_letter">コピー</button> -->
 
                     </td>
@@ -182,7 +182,7 @@
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}"> --}}
 
                     <td class="copy_success">
-                        <button class="sales_letter_url_none_set_btn" data-clipboard-text="{!!  $fromCompany->sales_letter_url_none !!}">コピー</button>
+                        <button class="sales_letter_url_none_clipboard" data-clipboard-text="{!!  $fromCompany->sales_letter_url_none !!}">コピー</button>
                     </td>
                 </tr>
 
@@ -194,7 +194,7 @@
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_300_words)) !!}"> --}}
 
                     <td class="copy_success">
-                        <button class="sales_letter_300_words_btn" data-clipboard-text="{!!  $fromCompany->sales_letter_300_words !!}">コピー</button>
+                        <button class="sales_letter_300_words_clipboard" data-clipboard-text="{!!  $fromCompany->sales_letter_300_words !!}">コピー</button>
                     </td>
                 </tr>
 
