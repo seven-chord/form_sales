@@ -80,6 +80,18 @@ jQuery (function ()
           $('.sale_start_container').css({'display':'flex'});
           $('.from_company_container').css({'width':'50%'});
           $('.send_count').html(send_count);
+
+          fromCompany = fromCompanyInfo[0]["info"]
+          $('#company_name').html(fromCompany.company_name)
+          $('#postcode').html(fromCompany.postcode)
+          $('#address').html(fromCompany.address)
+          $('#telephone').html(fromCompany.telephone)
+          $('#homepage').html(fromCompany.homepage)
+          $('#email').html(fromCompany.email)
+          $('#person_in_charge').html(fromCompany.person_in_charge)
+          $('#sales_letter').html(fromCompany.sales_letter)
+
+          $('#to_company_mail_all').html(fromCompanyInfo[0]["count"])
         });
     });
 
@@ -203,7 +215,7 @@ jQuery (function ()
              $(this).html(insertText);
          };
      });
-    
+
 
     //-----------営業メール文省略ここまで-----------
 
@@ -271,11 +283,11 @@ jQuery (function ()
 
     //  }
 
-   
-     
+
+
 
     //  $(function() {
- 
+
 
     //     shortcut.add("Shift+1",function() {
     //         $('.company_name_clipboard').click();
@@ -283,7 +295,7 @@ jQuery (function ()
     //         setTimeout(function(){
     //             $('.company_name_clipboard').css('border','1px solid rgb(216, 216, 216)');
     //         },200)
-            
+
     //     });
 
     //     shortcut.add("Shift+2",function() {
@@ -300,10 +312,10 @@ jQuery (function ()
     //     });
 
     // });
-     
+
     //----------ショートカットここまで----------
-  
-   
+
+
 
 
 });

@@ -52,10 +52,10 @@
 
                 <tr>
                     <th>
-                        <p>住所（）</p>    
-                        <p>市区町村-建物込（）</p>    
-                        <p>市区町村（）</p>    
-                        <p>建物名（）</p>    
+                        <p>住所（）</p>
+                        <p>市区町村-建物込（）</p>
+                        <p>市区町村（）</p>
+                        <p>建物名（）</p>
                     </th>
                     <td>
                         <p id="address">{{ $fromCompany->address }}</p>
@@ -202,6 +202,9 @@
                   <td><span class="btn btn-primary next_list_possible_button">送信完了->次の企業へ</span></td>
                   <td><span class="btn btn-primary next_list_impossible_button">送信不可->次の企業へ</span></td>
                   <td><span class="send_count"></span></td>
+                </tr>
+                <tr>
+                    <td>送信総数：<span id="to_company_mail_all"></span></td>
                 </tr>
 
                 <tr>

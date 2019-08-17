@@ -48,7 +48,8 @@ class HomeController extends Controller
 
     public function getFromCompany(Request $request)
     {
-        $fromCompanyInfo = FromCompany::where('id', $request->from_company_id)->first();
+        $fromCompanyInfo["info"] = FromCompany::where('id', $request->from_company_id)->first();
+        $fromCompanyInfo["count"] = ToCompany::where('possible_send_flag','0')->count();
 
         return $fromCompanyInfo;
     }
