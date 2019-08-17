@@ -21,8 +21,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '010-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://bondassociates.co.jp/inquiryform',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 1,
             ],
             [
                 'company_name' => 'testcompany2',
@@ -31,8 +32,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '020-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.jmec.co.jp/contact/02.html',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 1,
             ],
             [
                 'company_name' => 'testcompany3',
@@ -41,8 +43,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '030-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.nisso.co.jp/contacts/client/',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 2,
             ],
             [
                 'company_name' => 'testcompany4',
@@ -51,8 +54,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '040-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://bondassociates.co.jp/inquiryform',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 2,
             ],
             [
                 'company_name' => 'testcompany5',
@@ -61,8 +65,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '050-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.jmec.co.jp/contact/02.html',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 1,
             ],
             [
                 'company_name' => 'testcompany6',
@@ -71,8 +76,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '060-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.nisso.co.jp/contacts/client/',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 1,
             ],
             [
                 'company_name' => 'testcompany7',
@@ -81,8 +87,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '070-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://bondassociates.co.jp/inquiryform',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 1,
             ],
             [
                 'company_name' => 'testcompany8',
@@ -91,8 +98,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '080-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.jmec.co.jp/contact/02.html',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 2,
             ],
             [
                 'company_name' => 'testcompany9',
@@ -101,8 +109,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '090-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.nisso.co.jp/contacts/client/',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 1,
             ],
             [
                 'company_name' => 'testcompany10',
@@ -111,8 +120,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '010-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://bondassociates.co.jp/inquiryform',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 2,
             ],
             [
                 'company_name' => 'testcompany11',
@@ -121,8 +131,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '011-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.jmec.co.jp/contact/02.html',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 2,
             ],
             [
                 'company_name' => 'testcompany12',
@@ -131,8 +142,9 @@ class ToCompaniesTableSeeder extends Seeder
                 'telephone_1' => '012-0000-0000',
                 'categories' => 'aaa,bbb,ccc',
                 'contact_url' => 'https://www.nisso.co.jp/contacts/client/',
-                'possible_send_flag' => '0',
+                'possible_send_flag' => '1',
                 'send_date' => date('Y-m-d H:i:s'),
+                'from_company_id' => 2,
             ],
         ];
 
@@ -145,6 +157,7 @@ class ToCompaniesTableSeeder extends Seeder
                 'categories' => $to_company['categories'],
                 'contact_url' => $to_company['contact_url'],
                 'possible_send_flag' => $to_company['possible_send_flag'],
+                'from_company_id' => $to_company['from_company_id'],
             ]);
         }
 

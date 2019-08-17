@@ -34,7 +34,7 @@ class HomeController extends Controller
         $fromCompany = FromCompany::where('id', 1)->first();
         $fromCompanies = FromCompany::all();
 
-        $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','0')->paginate($pagenate_counts);
+        $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','1')->paginate($pagenate_counts);
         $count = ToCompany::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
         $total_count = ToCompany::orderBy('send_date','asc')->get()->count();
 
@@ -49,7 +49,7 @@ class HomeController extends Controller
     public function getFromCompany(Request $request)
     {
         $fromCompanyInfo["info"] = FromCompany::where('id', $request->from_company_id)->first();
-        $fromCompanyInfo["count"] = ToCompany::where('possible_send_flag','1')->count();
+        $fromCompanyInfo["count"] = ToCompany::where('possible_send_flag','1')->where('from_company_id', $request->from_company_id)->count();
 
         return $fromCompanyInfo;
     }

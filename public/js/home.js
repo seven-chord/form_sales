@@ -76,7 +76,7 @@ jQuery (function ()
         )
         .done(function(a1, fromCompanyInfo){
 
-        
+
           $('.sale_start_container').fadeIn('fast');
           $('.sale_start_container').css({'display':'flex'});
           $('.from_company_container').css({'width':'50%'});
@@ -109,7 +109,7 @@ jQuery (function ()
           $('#sales_letter_url_none').html(fromCompany.sales_letter_url_none)
           $('#sales_letter_300_words').html(fromCompany.sales_letter_300_words)
           $('#to_company_mail_all').html(fromCompanyInfo[0]["count"])
-
+console.log(fromCompanyInfo);
             //営業メール省略配列
             var short_text = {
                 company_name:'company_name',
@@ -150,7 +150,7 @@ jQuery (function ()
                      var insertText = showText += '…';
                      $(this).html(insertText);
                  };
-             });    
+             });
          }
 
         });
@@ -264,7 +264,7 @@ jQuery (function ()
         return str.length <= len ? str: (str.substr(0, len)+"...");
       }
 
-  
+
      //----------ショートカットここから----------
      var shortcut_data = [
          { shortcut:'Shift+1', clipboard_class:'company_name_clipboard', shortcut_explain_id:'company_name_shortcut'},
@@ -317,12 +317,12 @@ jQuery (function ()
      $.each(send_shortcut_data,function(property,value){
         //ショートカットキー操作
         shortcut.add(value.shortcut,function() {
-            $('.' + value.next_list_btn_class).click();            
+            $('.' + value.next_list_btn_class).click();
          });
      })
 
 
-    
+
 
 
 

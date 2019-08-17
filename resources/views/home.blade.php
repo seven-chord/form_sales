@@ -208,14 +208,9 @@
                             <p class="next_list_shortcut">（Shift + Tab）</p>
                         </span>
                     </td>
-
-                    <!-- <td>
-                        <p class="send_count"></p>
-                        <span>送信総数：</span><p id="to_company_mail_all"></p>
-                    </td> -->
                 </tr>
                 <tr>
-                    <td>送信総数：<span id="to_company_mail_all"></span></td>
+                    <td>送信先企業総数：<span id="to_company_mail_all"></span></td>
                     <td><span class="send_count"></span></td>
                 </tr>
 

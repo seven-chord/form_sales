@@ -14,16 +14,16 @@ class AddColumnToFromCompaniesTable extends Migration
     public function up()
     {
         Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('company_name_kana');
-            $table->string('division');
-            $table->string('municipalities_and_number');
-            $table->string('municipalities');
-            $table->string('address_number');
-            $table->string('building_name');
-            $table->string('person_in_charge_sei');
-            $table->string('person_in_charge_mei');
-            $table->string('furigana_sei');
-            $table->string('furigana_mei');
+            $table->string('company_name_kana')->nullable();
+            $table->string('division')->nullable();
+            $table->string('municipalities_and_number')->nullable();
+            $table->string('municipalities')->nullable();
+            $table->string('address_number')->nullable();
+            $table->string('building_name')->nullable();
+            $table->string('person_in_charge_sei')->nullable();
+            $table->string('person_in_charge_mei')->nullable();
+            $table->string('furigana_sei')->nullable();
+            $table->string('furigana_mei')->nullable();
         });
     }
 
