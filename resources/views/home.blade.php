@@ -17,8 +17,8 @@
 
                 <tr>
                     <th>
-                        <p>会社名（ショートカット）</p>
-                        <p>会社名カナ（ショートカット）</p>
+                        <p id="company_name_shortcut">会社名</p>
+                        <p id="company_name_kana_shortcut">会社名カナ</p>
                     </th>
                     <td>
                          <p id="company_name">{{ $fromCompany->company_name }}</p>
@@ -31,9 +31,7 @@
                 </tr>
 
                 <tr>
-                    <th>
-                        <p>郵便番号（ショートカット）</p>
-                    </th>
+                    <th id="postcode_shortcut">郵便番号</th>
                     <td id="postcode">{{ $fromCompany->postcode }}</td>
                     <td class="copy_success">
                         <button class="postcode_clipboard" data-clipboard-text="{!! $fromCompany->postcode !!}">コピー</button>
@@ -41,9 +39,7 @@
                 </tr>
 
                 <tr>
-                    <th>
-                        <p>事業部名（ショートカット）</p>
-                    </th>
+                    <th id="division_shortcut">事業部名</th>
                     <td id="division">{{ $fromCompany->division }}</td>
                     <td class="copy_success">
                         <button class="division_clipboard" data-clipboard-text="{!! $fromCompany->division !!}">コピー</button>
@@ -52,10 +48,10 @@
 
                 <tr>
                     <th>
-                        <p>住所（）</p>
-                        <p>市区町村-建物込（）</p>
-                        <p>市区町村（）</p>
-                        <p>建物名（）</p>
+                        <p id="address_shortcut">住所</p>
+                        <p id="municipalities_and_number_shortcut">市区町村-建物込</p>
+                        <p id="municipalities_shortcut">市区町村</p>
+                        <p id="building_name_shortcut">建物名</p>
                     </th>
                     <td>
                         <p id="address">{{ $fromCompany->address }}</p>
@@ -72,7 +68,7 @@
                 </tr>
 
                 <tr>
-                    <th>電話番号</th>
+                    <th id="telephone_shortcut">電話番号</th>
                     <td id="telephone">{{ $fromCompany->telephone }}</td>
                     <td class="copy_success">
                         <button class="telephone_clipboard" data-clipboard-text="{!! $fromCompany->telephone !!}">コピー</button>
@@ -80,7 +76,7 @@
                 </tr>
 
                 <tr>
-                    <th>ホームページURL</th>
+                    <th id="homepage_shortcut">ホームページURL</th>
                     <td id="homepage">{{ $fromCompany->homepage }}</td>
                     <td class="copy_success">
                         <button class="homepage_clipboard" data-clipboard-text="{!! $fromCompany->homepage !!}">コピー</button>
@@ -89,7 +85,7 @@
 
 
                 <tr>
-                    <th>email</th>
+                    <th id="email_shortcut">email</th>
                     <td id="email">{{ $fromCompany->email }}</td>
                     <td class="copy_success">
                         <button class="email_clipboard" data-clipboard-text="{!! $fromCompany->email !!}">コピー</button>
@@ -98,9 +94,9 @@
 
                 <tr>
                     <th>
-                        <p>担当者-氏名（）</p>
-                        <p>担当者-姓（）</p>
-                        <p>担当者-名（）</p>
+                        <p id="person_in_charge_shortcut">担当者-氏名</p>
+                        <p id="person_in_charge_sei_shortcut">担当者-姓</p>
+                        <p id="person_in_charge_mei_shortcut">担当者-名</p>
                     </th>
                     <td>
                         <p id="person_in_charge">{{ $fromCompany->person_in_charge }}</p>
@@ -116,9 +112,9 @@
 
                 <tr>
                     <th>
-                        <p>フリガナ-氏名（）</p>
-                        <p>フリガナ-姓（）</p>
-                        <p>フリガナ-名（）</p>
+                        <p id="kana_full_shortcut">フリガナ-氏名</p>
+                        <p id="kana_sei_shortcut">フリガナ-姓</p>
+                        <p id="kana_mei_shortcut">フリガナ-名</p>
                     </th>
                     <td>
                         <p id="kana_full">{{ $fromCompany->kana_full }}</p>
@@ -135,9 +131,9 @@
 
                 <tr>
                     <th>
-                        <p>ふりがな-氏名（）</p>
-                        <p>ふりがな-姓（）</p>
-                        <p>ふりがな-名（）</p>
+                        <p id="furigana_hiragana_shortcut">ふりがな-氏名</p>
+                        <p id="furigana_sei_shortcut">ふりがな-姓</p>
+                        <p id="furigana_mei_shortcut">ふりがな-名</p>
                     </th>
                     <td>
                         <p id="furigana_hiragana">{{ $fromCompany->furigana_hiragana }}</p>
@@ -153,7 +149,7 @@
 
 
                 <tr>
-                    <th>件名（）</th>
+                    <th id="subject_shortcut">件名</th>
                     <td id="subject">{{ $fromCompany->subject }}</td>
                     <td class="copy_success">
                         <button class="subject_clipboard" data-clipboard-text="{!! $fromCompany->subject !!}">コピー</button>
@@ -162,8 +158,8 @@
 
 
                 <tr>
-                    <th>営業文（）</th>
-                    <td id="sales_letter">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
+                    <th id="sales_letter_shortcut">営業文</th>
+                    <td id="sales_letter" class="sales_letter_short">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter)) !!}"> --}}
 
@@ -175,7 +171,7 @@
                 </tr>
 
                 <tr>
-                    <th>営業文-URLなし（）</th>
+                    <th id="sales_letter_url_none_shortcut">営業文-URLなし</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
                     <td id="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
@@ -187,9 +183,9 @@
                 </tr>
 
                 <tr>
-                    <th>営業文-300文字（）</th>
+                    <th id="sales_letter_300_words_shortcut">営業文-300文字</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
-                    <td id="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
+                    <td id="sales_letter_300_words">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
                     {{-- <input id="sales_letter_set" type="hidden" value="{!!  nl2br(e($fromCompany->sales_letter_300_words)) !!}"> --}}
 
@@ -199,12 +195,28 @@
                 </tr>
 
                 <tr>
-                  <td><span class="btn btn-primary next_list_possible_button">送信完了->次の企業へ</span></td>
-                  <td><span class="btn btn-primary next_list_impossible_button">送信不可->次の企業へ</span></td>
-                  <td><span class="send_count"></span></td>
+                    <td>
+                        <span class="btn btn-primary next_list_possible_button next_list_btn">
+                                <p>送信完了->次の企業へ</p>
+                                <p class="next_list_shortcut">（Shift + Enter）</p>
+                        </span>
+                    </td>
+
+                    <td>
+                        <span class="btn btn-primary next_list_impossible_button next_list_btn">
+                            <p>送信不可->次の企業へ</p>
+                            <p class="next_list_shortcut">（Shift + Tab）</p>
+                        </span>
+                    </td>
+
+                    <!-- <td>
+                        <p class="send_count"></p>
+                        <span>送信総数：</span><p id="to_company_mail_all"></p>
+                    </td> -->
                 </tr>
                 <tr>
                     <td>送信総数：<span id="to_company_mail_all"></span></td>
+                    <td><span class="send_count"></span></td>
                 </tr>
 
                 <tr>
@@ -219,7 +231,7 @@
 
 
             <div class="to_comapny_container" style="margin-left:20px;">
-                     <iframe  id="to_comapny_page" style="width:130%;height:1300px;border-radius:5px;"></iframe>
+                     <iframe  id="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
             </div>
 
 
