@@ -15,12 +15,15 @@
 
     <body>
         <p>CSVファイルを選択してください</p>
-        <form action="{{ url('/to_companies/csv_import')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/to_companies/csv_import')}}" method="POST" enctype="multipart/form-data" style="margin-bottom:20px;">
             {{ csrf_field() }}
 
             <input type="file" name="csv_file">
             <button type="submit">インポート</button>
         </form>
+
+        <a href="{{url('/home')}}">ホームに戻る</a>
+
             
     </body>
 </html>

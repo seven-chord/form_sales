@@ -2,6 +2,7 @@
 @section('content')
 
 
+
 <div class="container">
 
     <!-- ------------営業開始ここから------------ -->
@@ -262,9 +263,9 @@
             <hr>
                 <button type="button" class="btn btn-primary">検索</button>
             <hr> --}}
-            <h3>送信元企業を選択</h3>
-            <form action="{{ url('/to_companies/from_company_project_change') }}" method="POST">
-            {{ csrf_field() }}
+            <h4>プロジェクト選択</h4>
+            <form action="{{ url('/from_companies/from_company_project') }}" method="POST">
+              {{ csrf_field() }}
                     <select class="form-control from-company" name="from_company_id" >
                         @forelse ($fromCompanies as $company)
                             <option value="{{ $company->id }}" >{{ $company->project_name }}</option>
@@ -273,8 +274,9 @@
                         @endforelse
                     </select>
                     <hr>
-                    <!-- <input type="text" name="test"> -->
-                    <button type="submit" class="btn btn-primary">変更</button>
+                         <button type="submit" class="btn btn-primary" name="project_change" value="project_change">プロジェクト変更</button>
+                    <hr>
+                         <button type="submit" class="btn btn-primary" name="project_edit" value="project_change">プロジェクト編集</button>
             </form>
             <hr>
                 <p class="btn btn-primary sales_start_button">営業を開始する</p>
@@ -284,20 +286,20 @@
         </div>
 
         <!-- カラム -->
-        <div class="col-md-10">
-            <table class="table table-striped">
+        <div class="col">
+            <table class="table table-striped" style="table-layout:fixed;">
                 <thead>
                     <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">企業名</th>
-                    <th scope="col">都道府県</th>
-                    <th scope="col">住所</th>
-                    <th scope="col">電話番号</th>
-                    <th scope="col">カテゴリ</th>
-                    <th scope="col">問い合わせURL</th>
-                    <th scope="col">送信日	</th>
-                    <th scope="col">送信可否</th>
-                    <th scope="col"></th>
+                        <th style="width:5%;">No</th>
+                        <th>企業名</th>
+                        <th>都道府県</th>
+                        <th>住所</th>
+                        <th style="width:10%;">電話番号</th>
+                        <th>カテゴリ</th>
+                        <th style="width:30%;">問い合わせURL</th>
+                        <th>送信日</th>
+                        <th style="width:5%;">プロジェクトNo</th>
+                    <!-- <th scope="col">送信可否</th> -->
                     </tr>
                 </thead>
 
@@ -305,18 +307,16 @@
                 <tbody id="to_company_list">
                     @forelse ($toCompanies as $toCompany)
                         <tr>
-                            <th scope="row" class="to_company_id">{{ $toCompany->id }}</th>
-                            <td>{{ $toCompany->company_name }}</td>
-                            <td>{{ $toCompany->address_1 }}</td>
+                            <th class="to_company_id">{{ $toCompany->id }}</th>
+                            <td >{{ $toCompany->company_name }}</td>
+                            <td >{{ $toCompany->address_1 }}</td>
                             <td>{{ $toCompany->address_2 }}</td>
                             <td>{{ $toCompany->telephone_1 }}</td>
                             <td>{{ $toCompany->categories }}</td>
                             <td class="to_company_url">{{ $toCompany->contact_url }}</td>
                             <td>{{ $toCompany->send_date }}</td>
-                            <td>{{ $toCompany->possible_send_flag }}</td>
-                            <td>
-                                <a class="btn btn-warning" href="#" role="button">非表示</a>
-                            </td>
+                            <td>{{ $toCompany->from_company_id }}</td>
+                            <!-- <td>{{ $toCompany->possible_send_flag }}</td> -->
                         </tr>
                     @empty
                         <tr>

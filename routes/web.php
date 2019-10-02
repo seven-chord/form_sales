@@ -29,16 +29,13 @@ Route::get('/to_companies/insert', 'ToCompaniesController@insertGet');
 //作成したいTo_companies除法をDBにinsertするコントローラー
 Route::post('/to_companies/insert', 'ToCompaniesController@insertPost');
 
-//企業情報一覧表示
-Route::get('/to_companies','ToCompaniesController@index');
-
 //csvインポート画面
 Route::get('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportGet');
 
 Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportPost');
 
 //from_companyのプロジェクトチェンジ
-Route::post('/to_companies/from_company_project_change','FromCompaniesChangeProjectsController@changeProject');
+Route::post('/from_companies/from_company_project','FromCompanyProjectPostController@postProject');
 
 
 //送信完了->次の企業へajax処理
@@ -55,4 +52,5 @@ Route::post('/home/send_date_update','SendDateUpdateController@sendDateUpdate');
 Route::get('/home/get_from_company','HomeController@getFromCompany');
 
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
+
 Route::get('/home', 'HomeController@index')->name('home');
