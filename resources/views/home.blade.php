@@ -260,24 +260,26 @@
                 @endforelse
             </select>
             <hr>
-            <button type="button" class="btn btn-primary">検索</button>
+                <button type="button" class="btn btn-primary">検索</button>
             <hr> --}}
             <h3>送信元企業を選択</h3>
-            <select class="form-control from-company">
-                @forelse ($fromCompanies as $company)
-                    <option value="{{ $company->id }}">{{ $company->company_name }}</option>
-                @empty
-                    <option value="">-</option>
-                @endforelse
-            </select>
-            {{-- <hr>
-            <button type="button" class="btn btn-primary">検索</button> --}}
+            <form action="{{ url('/to_companies/from_company_project_change') }}" method="POST">
+            {{ csrf_field() }}
+                    <select class="form-control from-company" name="from_company_id" >
+                        @forelse ($fromCompanies as $company)
+                            <option value="{{ $company->id }}" >{{ $company->project_name }}</option>
+                        @empty
+                            <option value="">-</option>
+                        @endforelse
+                    </select>
+                    <hr>
+                    <!-- <input type="text" name="test"> -->
+                    <button type="submit" class="btn btn-primary">変更</button>
+            </form>
             <hr>
-            <p class="btn btn-primary sales_start_button">営業を開始する</p>
+                <p class="btn btn-primary sales_start_button">営業を開始する</p>
             <hr>
-            <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
-            <hr>
-            <p class="btn btn-primary ajax_button">ajax</p>
+                <a class="btn btn-primary" href="{{ url('/to_companies/csv_import') }}" role="button">CSVインポート</a>
 
         </div>
 

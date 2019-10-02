@@ -256,7 +256,7 @@ console.log(fromCompanyInfo);
 
     //送付先企業切り替え関数
     function to_company_change(url){
-        $('.to_comapny_container').children('iframe').attr('src',url);
+        $('.to_comapny_container').children('iframe').attr('src', url);
     }
 
 

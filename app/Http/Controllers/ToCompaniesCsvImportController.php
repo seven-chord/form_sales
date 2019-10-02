@@ -67,7 +67,7 @@ class ToCompaniesCsvImportController extends Controller
                 if($row_count > 1)
                 {
                     //エンコーディング
-                    $company_name =  $row[0];
+                    $company_name =  mb_convert_encoding($row[0], 'UTF-8', 'SJIS');
                     $telephone_1  =  mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
                     $contact_url  =  mb_convert_encoding($row[2], 'UTF-8', 'SJIS');
 
@@ -75,16 +75,17 @@ class ToCompaniesCsvImportController extends Controller
                     $now = Carbon::now();
                     $csvimport_array = [
                         'company_name' => $company_name,
-                        'address_1' => '関東',
-                        'address_2' => '関東',
+                        'address_1' => '不明',
+                        'address_2' => '不明',
                         'telephone_1' => $telephone_1,
-                        'categories' => 'en転職',
+                        'categories' => 'テレアポ業者',
                         'possible_send_flag' => 0,
                         'send_date' => $now,
-                        'contact_url' => $contact_url
+                        'contact_url' => $contact_url,
+                        'from_company_id' => '1'
                     ];
 
-                    array_push($insert_array,$csvimport_array);
+                    array_push($insert_array, $csvimport_array);
 
                 }
               $row_count++;

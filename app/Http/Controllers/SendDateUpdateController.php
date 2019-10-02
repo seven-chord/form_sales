@@ -14,8 +14,6 @@ class SendDateUpdateController extends Controller
         $now = Carbon::now();
         $result = ToCompany::where('id', $request->to_company_id)
           ->update(['possible_send_flag' => 1,'send_date' => $now]);
-
-        
         // return $result;
     }
 }

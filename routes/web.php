@@ -26,19 +26,20 @@ Route::get('/', function () {
 //テスト用企業情報作成route
 Route::get('/to_companies/insert', 'ToCompaniesController@insertGet');
 
-
 //作成したいTo_companies除法をDBにinsertするコントローラー
 Route::post('/to_companies/insert', 'ToCompaniesController@insertPost');
 
-
 //企業情報一覧表示
 Route::get('/to_companies','ToCompaniesController@index');
-
 
 //csvインポート画面
 Route::get('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportGet');
 
 Route::post('/to_companies/csv_import','ToCompaniesCsvImportController@csvImportPost');
+
+//from_companyのプロジェクトチェンジ
+Route::post('/to_companies/from_company_project_change','FromCompaniesChangeProjectsController@changeProject');
+
 
 //送信完了->次の企業へajax処理
 Route::post('/home/send_date_update','SendDateUpdateController@sendDateUpdate');
