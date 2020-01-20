@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
+<script>
 
+</script>
 
 <div class="container">
 
@@ -172,7 +174,7 @@
                 </tr>
 
                 <tr>
-                    <th id="sales_letter_url_none_shortcut">営業文-URLなし</th>
+                    <th id="sales_letter_url_none_shortcut">営業文-500文字</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
                     <td id="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
@@ -219,6 +221,11 @@
                    <td><span class="btn btn-primary return_list_button">一覧へ戻る</span></td>
                 </tr>
 
+                <tr>
+                   <td class="to_company_url_spare"></td>
+                </tr>
+
+
             </table>
 
             <!-- ------------from_company情報ここまで------------ -->
@@ -229,6 +236,7 @@
             <div class="to_comapny_container" style="margin-left:20px;">
                      <iframe  id="to_comapny_page" style="width:130%;height:1000px;border-radius:5px;"></iframe>
             </div>
+            
 
 
             <!-- ------------to_company情報ここまで------------ -->

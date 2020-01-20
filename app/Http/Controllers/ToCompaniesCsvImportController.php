@@ -68,7 +68,7 @@ class ToCompaniesCsvImportController extends Controller
                 {
                     //エンコーディング
                     $company_name =  mb_convert_encoding($row[0], 'UTF-8', 'SJIS');
-                    $telephone_1  =  mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
+                    $categories  =  mb_convert_encoding($row[1], 'UTF-8', 'SJIS');
                     $contact_url  =  mb_convert_encoding($row[2], 'UTF-8', 'SJIS');
 
                     //現在時刻を取得
@@ -77,12 +77,12 @@ class ToCompaniesCsvImportController extends Controller
                         'company_name' => $company_name,
                         'address_1' => '不明',
                         'address_2' => '不明',
-                        'telephone_1' => $telephone_1,
-                        'categories' => 'テレアポ業者',
+                        'telephone_1' => '不明',
+                        'categories' => $categories,
                         'possible_send_flag' => 0,
-                        'send_date' => $now,
+                        'created_date' => $now,
                         'contact_url' => $contact_url,
-                        'from_company_id' => '1'
+                        'from_company_id' => '6'
                     ];
 
                     array_push($insert_array, $csvimport_array);

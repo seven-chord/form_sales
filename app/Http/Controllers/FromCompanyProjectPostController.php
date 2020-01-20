@@ -18,7 +18,7 @@ class FromCompanyProjectPostController extends Controller
             $from_company_post_id = $request->from_company_id;
             $prefectures = Prefecture::all();
             $categories = Category::all();
-            $pagenate_counts = 100;
+            $pagenate_counts = 200;
             $fromCompany = FromCompany::where('id', $from_company_post_id)->first();
             $fromCompanies = FromCompany::all();
     

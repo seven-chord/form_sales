@@ -168,9 +168,9 @@ console.log(fromCompanyInfo);
 
 
 
-
     //urlの値を取得
     var to_company_url = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_url').text();
+    $('.to_company_url_spare').append('<td>"' + to_company_url +'"</td>');
     to_company_change(to_company_url);
 
     //「送付完了->次の企業へ」ボタンクリック
@@ -183,6 +183,8 @@ console.log(fromCompanyInfo);
         send_count = "送付数 " + send_posssible_count;
         $('.send_count').html(send_count);
         to_company_change(to_company_url);
+        to_company_spare_change(to_company_url);
+        $('.to_company_url_spare').text(to_company_url);
         //----------ここからajax処理(送信可能日付をupdate)！！！！！----------
             $.ajax({
                 headers: {
@@ -219,6 +221,7 @@ console.log(fromCompanyInfo);
         next_company_count++;
         to_company_url = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_url').text();
         to_company_change(to_company_url);
+        $('.to_company_url_spare').html(to_company_url);
 
 
          //----------ここからajax処理(送信不可日付をupdate)！！！！！----------
@@ -257,6 +260,10 @@ console.log(fromCompanyInfo);
     //送付先企業切り替え関数
     function to_company_change(url){
         $('.to_comapny_container').children('iframe').attr('src', url);
+    }
+
+    function to_company_spare_change(url){
+        $('.to_company_url_spare').html(url);
     }
 
 
