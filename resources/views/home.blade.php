@@ -174,7 +174,7 @@
                 </tr>
 
                 <tr>
-                    <th id="sales_letter_url_none_shortcut">営業文-500文字</th>
+                    <th id="sales_letter_url_none_shortcut">営業文-1000文字</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
                     <td id="sales_letter_url_none">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}
@@ -186,7 +186,7 @@
                 </tr>
 
                 <tr>
-                    <th id="sales_letter_300_words_shortcut">営業文-300文字</th>
+                    <th id="sales_letter_300_words_shortcut">営業文-500文字</th>
                     <!-- <td>!! nl2bre$fromCompany->sales_letter !!</td> -->
                     <td id="sales_letter_300_words">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td>
                     {{-- <td id="sales_letter_set">{!!  nl2br(e($fromCompany->sales_letter_url_none)) !!}</td> --}}

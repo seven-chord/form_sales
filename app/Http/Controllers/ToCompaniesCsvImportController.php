@@ -82,7 +82,7 @@ class ToCompaniesCsvImportController extends Controller
                         'possible_send_flag' => 0,
                         'created_date' => $now,
                         'contact_url' => $contact_url,
-                        'from_company_id' => '6'
+                        'from_company_id' => '9'
                     ];
 
                     array_push($insert_array, $csvimport_array);
