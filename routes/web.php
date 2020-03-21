@@ -54,3 +54,6 @@ Route::get('/home/get_from_company','HomeController@getFromCompany');
 Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/change_project', 'FromCompaniesChangeProjectsController@changeProject');
+

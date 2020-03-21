@@ -231,10 +231,6 @@
                    <td><span class="btn btn-primary return_list_button">一覧へ戻る</span></td>
                 </tr>
 
-                <tr>
-                   <td class="to_company_url_spare"></td>
-                </tr>
-
             </table>
 
             <!-- ------------from_company情報ここまで------------ -->

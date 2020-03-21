@@ -80,9 +80,11 @@ class ToCompaniesCsvImportController extends Controller
                         'telephone_1' => '不明',
                         'categories' => $categories,
                         'possible_send_flag' => 0,
+                        'send_date' => '2020-01-01',
                         'created_date' => $now,
                         'contact_url' => $contact_url,
-                        'from_company_id' => '9'
+                        'from_company_id' => '1',
+                        'list_charge' => ''
                     ];
 
                     array_push($insert_array, $csvimport_array);

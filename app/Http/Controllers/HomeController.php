@@ -28,21 +28,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $prefectures = Prefecture::all();
-        $categories = Category::all();
-        $pagenate_counts = 100;
-        $fromCompany = FromCompany::where('id', 1)->first();
+        // $prefectures = Prefecture::all();
+        // $categories = Category::all();
+        $from_company_post_id = 1;
+        $pagenate_counts = 400;
+        $fromCompany = FromCompany::where('id', $from_company_post_id)->first();
         $fromCompanies = FromCompany::all();
-
-        $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','0')->where('from_company_id','1')->paginate($pagenate_counts);
+        // $toCompanyListCharge = ToCompany::where('possible_send_flag', '0')->where('from_company_id', 1)->first();
+        $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','0')->where('from_company_id',$from_company_post_id)->paginate($pagenate_counts);
         $count = ToCompany::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
         $total_count = ToCompany::orderBy('send_date','asc')->get()->count();
 
         return view('home')
-                ->with('prefectures', $prefectures)
-                ->with('categories', $categories)
                 ->with('fromCompany', $fromCompany)
                 ->with('fromCompanies', $fromCompanies)
+                ->with('from_company_post_id', $from_company_post_id)
                 ->with('toCompanies', $toCompanies);
     }
 

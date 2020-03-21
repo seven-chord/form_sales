@@ -14,36 +14,26 @@ jQuery (function ()
     new ClipboardJS('.company_name_kana_clipboard');
     new ClipboardJS('.postcode_clipboard');
     new ClipboardJS('.division_clipboard');
-
-
     new ClipboardJS('.address_clipboard');
     new ClipboardJS('.municipalities_and_number_clipboard');
     new ClipboardJS('.municipalities_clipboard');
     new ClipboardJS('.building_name_clipboard');
-
-
     new ClipboardJS('.telephone_clipboard');
     new ClipboardJS('.homepage_clipboard');
     new ClipboardJS('.email_clipboard');
-
     new ClipboardJS('.person_in_charge_clipboard');
     new ClipboardJS('.person_in_charge_sei_clipboard');
     new ClipboardJS('.person_in_charge_mei_clipboard');
-
     new ClipboardJS('.kana_full_clipboard');
     new ClipboardJS('.kana_sei_clipboard');
     new ClipboardJS('.kana_mei_clipboard');
-
-
     new ClipboardJS('.furigana_hiragana_clipboard');
     new ClipboardJS('.furigana_sei_clipboard');
     new ClipboardJS('.furigana_mei_clipboard');
-
     new ClipboardJS('.subject_clipboard');
     new ClipboardJS('.sales_letter_clipboard');
     new ClipboardJS('.sales_letter_url_none_clipboard');
     new ClipboardJS('.sales_letter_300_words_clipboard');
-
 
 
 
@@ -170,7 +160,7 @@ console.log(fromCompanyInfo);
 
     //urlの値を取得
     var to_company_url = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_url').text();
-    $('.to_company_url_spare').append('<td>"' + to_company_url +'"</td>');
+    $('.to_company_url_spare').append('<button class="btn btn-primary" ><a href="' + to_company_url.replace(/"/g, '').trim() + '" target="_blank" class="to_company_spare_link" style="color:white;">URL確認</a></button>');
     to_company_change(to_company_url);
 
     //「送付完了->次の企業へ」ボタンクリック
@@ -183,8 +173,11 @@ console.log(fromCompanyInfo);
         send_count = "送付数 " + send_posssible_count;
         $('.send_count').html(send_count);
         to_company_change(to_company_url);
-        to_company_spare_change(to_company_url);
-        $('.to_company_url_spare').text(to_company_url);
+        // $('.to_company_spare_link').append('<a href="' + to_company_url.replace(/"/g, '').trim() + '" target="_blank">' + to_company_url.replace(/"/g, '').trim() +'"</a>');
+        $('.to_company_spare_link').attr("href", to_company_url.replace(/"/g, '').trim());
+        $('.to_company_spare_link').text(to_company_url.replace(/"/g, '').trim());
+
+
         //----------ここからajax処理(送信可能日付をupdate)！！！！！----------
             $.ajax({
                 headers: {
@@ -220,8 +213,9 @@ console.log(fromCompanyInfo);
         var to_company_id = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_id').text();
         next_company_count++;
         to_company_url = $('#to_company_list').find('tr').eq(next_company_count).find('.to_company_url').text();
-        to_company_change(to_company_url);
-        $('.to_company_url_spare').html(to_company_url);
+        console.log('test');
+        $('.to_company_spare_link').attr("href", to_company_url.replace(/"/g, '').trim());
+        $('.to_company_spare_link').text(to_company_url.replace(/"/g, '').trim());
 
 
          //----------ここからajax処理(送信不可日付をupdate)！！！！！----------
@@ -263,7 +257,7 @@ console.log(fromCompanyInfo);
     }
 
     function to_company_spare_change(url){
-        $('.to_company_url_spare').html(url);
+        $('.to_company_url_spare').append('<a href="' + url.replace(/"/g, '').trim() + '" target="_blank">' + url.replace(/"/g, '').trim() +'"</a>');
     }
 
 
@@ -335,6 +329,18 @@ console.log(fromCompanyInfo);
 
     //----------ショートカットここまで----------
 
+
+    //プロジェクトリストを変更
+    $(document).ready(function(){
+        $("#project-list").val(from_company_post_id);
+    });
+
+    //担当者とリスト担当者
+    let salses_list_charge = [
+        'MJさん_03_02_hope',
+        'KGさん_03_02_hope',
+        'ARさん_03_02_hope'
+    ];
 
 
 
