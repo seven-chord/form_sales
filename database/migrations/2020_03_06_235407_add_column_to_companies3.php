@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropColumnToFromCompaniesTable extends Migration
+class AddColumnToCompanies3 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class DropColumnToFromCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::table('from_companies', function (Blueprint $table) {
-            $table->dropColumn('project_name');
+        Schema::table('to_companies', function (Blueprint $table) {
+            $table->string('list_charge');
         });
     }
 
@@ -25,8 +25,8 @@ class DropColumnToFromCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::table('from_companies', function (Blueprint $table) {
-            $table->integer('project_name')->default(false);
+        Schema::table('to_companies', function (Blueprint $table) {
+            //
         });
     }
 }
