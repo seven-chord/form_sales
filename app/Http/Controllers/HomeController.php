@@ -28,16 +28,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $prefectures = Prefecture::all();
-        // $categories = Category::all();
-        $from_company_post_id = 1;
         $pagenate_counts = 400;
-        $fromCompany = FromCompany::where('id', $from_company_post_id)->first();
-        $fromCompanies = FromCompany::all();
-        // $toCompanyListCharge = ToCompany::where('possible_send_flag', '0')->where('from_company_id', 1)->first();
-        $toCompanies = ToCompany::orderBy('id','asc')->where('possible_send_flag','0')->where('from_company_id',$from_company_post_id)->paginate($pagenate_counts);
-        $count = ToCompany::orderBy('send_date','asc')->get()->count() / $pagenate_counts;
-        $total_count = ToCompany::orderBy('send_date','asc')->get()->count();
+
+        // ユーザに紐付いているFromCompanyを全て取得
+        $user = \Auth::user();
+        $fromCompanies = FromCompany::where('user_id', $user->id)->orderBy('id','asc')->get();
+
+        // 取得したFromCompaniesのうち、先頭のものを最初の営業対象にする
+        $fromCompany = $fromCompanies->first();
+
+        // ユーザに紐づくFromCompanyが存在しなかった場合、ダミーデータをセット
+        if ($fromCompany == null) {
+            $fromCompany = new ToCompany;
+            $from_company_post_id = 0;
+             // paginateするために0件のダミーデータを取得する
+            $toCompanies = ToCompany::where('id','0')->paginate($pagenate_counts);
+        }
+        else {
+            $from_company_post_id = $fromCompany->id;
+            $toCompanies = ToCompany::where('from_company_id', $from_company_post_id)->where('possible_send_flag','0')->orderBy('id','asc')->paginate($pagenate_counts);
+        }
 
         return view('home')
                 ->with('fromCompany', $fromCompany)

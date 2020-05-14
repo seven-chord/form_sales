@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToFromCompaniesTable extends Migration
+class AddColumnToCompanies3 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnToFromCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::table('from_companies', function (Blueprint $table) {
-            $table->string('project_name');
+        Schema::table('to_companies', function (Blueprint $table) {
+            $table->string('list_charge');
         });
     }
 
@@ -25,7 +25,7 @@ class AddColumnToFromCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::table('from_companies', function (Blueprint $table) {
+        Schema::table('to_companies', function (Blueprint $table) {
             //
         });
     }
